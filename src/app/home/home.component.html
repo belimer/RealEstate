@@ -1,0 +1,35 @@
+<mat-sidenav-container>
+    <mat-sidenav #sidenav role="navigation">
+        <!--this is a place for us to add side-nav code-->
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <app-header></app-header>
+
+    </mat-sidenav-content>
+</mat-sidenav-container>
+<div>
+    <mat-card style="background-color: rgb(16, 16, 156);" class="welcome">
+        <h1>How can we help?</h1>
+        <br />
+        <div class="search">
+            <mat-label>Search: </mat-label>
+            <mat-form-field>
+                <mat-label>Search </mat-label>
+                <input matInput placeholder="Search" class="input">
+            </mat-form-field>
+            <button button="submit" mat-raised-button color="primary">Search</button>
+        </div>
+
+    </mat-card>
+</div>
+
+<div class="container">
+    <!-- <label class="image-upload-container btn btn-bwm">
+        <span>Select Image</span>
+        <input #imageInput type="file" accept="image/*" (change)="processFile(imageInput)">
+    </label> -->
+    <mat-form-field  class="image-upload-container btn btn-bwm">
+        <label>Select File to upload</label>
+            <input matInput type="file" accept="image/*"  (change)="processFile(imageInput)">
+          </mat-form-field>
+</div>

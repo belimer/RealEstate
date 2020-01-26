@@ -1,0 +1,50 @@
+<!-- <mat-toolbar color="primary">
+    <div fxFlex fxLayout fxLayoutAlign="end" fxHide.xs>
+        <ul fxLayout fxLayoutGap="15px" class="navigation-items">
+            <li>
+                <a routerLink="/owner">Owner Actions</a>
+            </li>
+            <li>
+                <a routerLink="/account">Account Actions</a>
+            </li>
+        </ul>
+    </div>
+</mat-toolbar> -->
+<mat-sidenav-container>
+    <mat-sidenav #sidenav role="navigation">
+        <!--this is a place for us to add side-nav code-->
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <app-header></app-header>
+
+    </mat-sidenav-content>
+</mat-sidenav-container>
+
+<div class="login-main">
+    <mat-card>
+        <p>Do not have an account?</p>
+        <mat-card-header>
+            <mat-card-title>Register Here</mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="aln">
+            <mat-form-field>
+                <input matInput placeholder="username">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="First name">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Last name">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Email">
+            </mat-form-field>
+            <mat-form-field>
+                <input type="password" matInput placeholder="password">
+            </mat-form-field>
+        </mat-card-content>
+        <mat-card-actions align="end">
+            <button mat-raised-button color="primary" onclick="showLogin()">Register</button>
+        </mat-card-actions>
+    </mat-card>
+</div>
