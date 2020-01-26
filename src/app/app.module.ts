@@ -40,17 +40,13 @@ import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { HomeComponent } from './home/home.component';
-import { RegisterComponent } from './register/register.component';
-import { HeaderComponent } from './navigation/header/header.component';
-import { LoginComponent } from './login/login.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    RegisterComponent,
-    HeaderComponent,
-    LoginComponent
+
   ],
   imports: [
     BrowserModule,
