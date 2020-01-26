@@ -4,6 +4,7 @@ import { AuthenticationModule } from '../authentication/authentication.module';
 import { LandlordModule } from '../landlord/landlord.module';
 import { ClientModule } from '../client/client.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { AgentRoutingModule } from './agent-routing.module';
 
 
 
@@ -11,10 +12,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
   declarations: [DashboardComponent],
   imports: [
     CommonModule,
-    AuthenticationModule,
-    AgentModule,
-    LandlordModule,
-    ClientModule
+    AgentRoutingModule,
   ]
 })
 export class AgentModule { }

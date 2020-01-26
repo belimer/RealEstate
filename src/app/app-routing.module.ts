@@ -15,7 +15,7 @@ const routes: Routes = [
     loadChildren: './modules/client/client.module#ClientModule'  
   },
   {path: 'landlord',
-    loadChildren: './modules/landlord/landload.module#LandlordModule'  
+    loadChildren: './modules/landlord/landlord.module#LandlordModule'  
   },
   {path: 'agent',
     loadChildren: './modules/agent/agent.module#AgentModule'  

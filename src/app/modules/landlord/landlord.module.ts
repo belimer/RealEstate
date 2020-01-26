@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { AuthenticationModule } from '../authentication/authentication.module';
 import { AgentModule } from '../agent/agent.module';
 import { ClientModule } from '../client/client.module';
+import { LandlordRoutingModule } from './landlord-routing.module';
 
 
 
@@ -10,10 +11,8 @@ import { ClientModule } from '../client/client.module';
   declarations: [],
   imports: [
     CommonModule,
-    AuthenticationModule,
-    AgentModule,
-    LandlordModule,
-    ClientModule
+    LandlordRoutingModule
+    
   ]
 })
 export class LandlordModule { }

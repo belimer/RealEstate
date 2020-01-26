@@ -14,11 +14,7 @@ import { SharedModule } from '../shared/shared.module';
   declarations: [LoginComponent, RegisterComponent],
   imports: [
     CommonModule,
-    AuthenticationModule,
-    AgentModule,
-    LandlordModule,
-    ClientModule,
-    AuthRoutingModule,SharedModule
+    AuthRoutingModule
   ]
 })
 export class AuthenticationModule { }
