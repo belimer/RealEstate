@@ -1,0 +1,16 @@
+export interface User {
+  name?: string;
+  uid?: string;
+  phoneNumber?: string;
+  email?: string;
+  photoURL?: string;
+  nationalIdURL?: string;
+  nationalID?: string;
+  roles?: Roles;
+}
+
+export interface Roles {
+  agent?: boolean;
+  landlord?: boolean;
+  tenant?: boolean;
+}
