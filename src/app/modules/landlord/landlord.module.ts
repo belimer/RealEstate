@@ -12,7 +12,6 @@ import { LandlordRoutingModule } from './landlord-routing.module';
   imports: [
     CommonModule,
     LandlordRoutingModule
-    
   ]
 })
 export class LandlordModule { }
