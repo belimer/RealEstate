@@ -30,19 +30,13 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
-import { AuthenticationModule } from '../authentication/authentication.module';
-import { AgentModule } from '../agent/agent.module';
-import { LandlordModule } from '../landlord/landlord.module';
-import { ClientModule } from '../client/client.module';
+import {FormsModule,ReactiveFormsModule} from '@angular/forms';
+
 
 
 @NgModule({
   declarations: [],
   imports: [
-    AuthenticationModule,
-    AgentModule,
-    LandlordModule,
-    ClientModule,
     CommonModule,
     MatCheckboxModule,
     MatCheckboxModule,
@@ -75,8 +69,12 @@ import { ClientModule } from '../client/client.module';
     MatTableModule,
     MatSortModule,
     MatPaginatorModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [
+    FormsModule,
+    ReactiveFormsModule,
     MatCheckboxModule,
     MatCheckboxModule,
     MatButtonModule,
