@@ -1,6 +1,7 @@
-export class Property {
-    constructor(
-        public cat:string) {
-    }
+export interface Property {
+    propertyId?: string;
+    name?: string;
+    category?:string;
+    availableSlots?:number;
   }
   

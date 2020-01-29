@@ -1,13 +1,4 @@
 import { Injectable } from '@angular/core';
-<<<<<<< HEAD
-
-@Injectable({
-  providedIn: 'root'
-})
-export class PropertiesService {
-
-  constructor() { }
-=======
 import { AngularFirestore } from '@angular/fire/firestore';
 
 @Injectable({
@@ -28,5 +19,20 @@ export class PropertiesService {
 	getCategories() {
 		return this.afs.collection('categories').snapshotChanges();
 	}
->>>>>>> 3d9f7b24f0c61cce2f17781bdca533019d94b5f6
+	createProperty(name, category, availableSlots){
+		const propertyId = this.getRandomId();
+		this.afs.doc(`properties/${propertyId}`).set({
+			name:name,
+			propertyId:propertyId,
+			category:category,
+			availableSlots:availableSlots
+		});
+	}
+	getRandomId() {
+		return Math.floor((Math.random()*6)+1);
+	}
+	
+	getProperties(){
+		return this.afs.collection('properties').snapshotChanges();
+	}
 }

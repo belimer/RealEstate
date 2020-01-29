@@ -10,3 +10,6 @@ mat-form-field{
 input{
     width: 70%;
 }
+select{
+    width: 70%;
+}

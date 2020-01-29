@@ -24,8 +24,7 @@ export class LandlordsComponent implements OnInit {
         phone:['', Validators.required],
         email:['', Validators.required]
       }
-    )
-    
+    )    
     this.getAllLandlords();
 
   }
