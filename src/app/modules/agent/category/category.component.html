@@ -1,0 +1,142 @@
+<div class="wrapper ">
+    <div>
+        <app-sidenav></app-sidenav>
+    </div>
+    <div class="main-panel">
+        <!-- Navbar -->
+        <div>
+            <app-navbar></app-navbar>
+        </div>
+        <!-- End Navbar -->
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-6 col-md-12">
+                        <div class="card">
+                            <div class="card-header card-header-warning">
+                                <h4 class="card-title">Employees Stats</h4>
+                                <p class="card-category">New employees on 15th September, 2016</p>
+                            </div>
+                            <div class="card-body table-responsive ">
+
+                                    <table class="table table-hover">
+                                            <thead class="text-warning">
+                                                <th>Name</th>
+                                                
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor ="let category of categories">
+                                                    <td>{{category.name}}</td>
+                                                    <td>View</td>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12">
+                        <div class="card">
+                            <div class="card-header card-header-warning">
+                                <h4 class="card-title">Form</h4>
+                                <p class="card-category">Add Categories here</p>
+                            </div>
+                            <form [formGroup]="addcategoryForm" class="macard">
+                                <mat-form-field>
+                                    <input matInput placeholder="Name" formControlName="name">
+                                </mat-form-field>
+                            </form>
+                            <mat-card-actions align="end">
+                                <button mat-raised-button color="primary" type="submit" (click)="onAdd()">Save</button>
+                            </mat-card-actions>
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="container-fluid">
+                <nav class="float-left">
+                    <ul>
+                        <li>
+                            <a href="https://www.creative-tim.com">
+                                Creative Tim
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://creative-tim.com/presentation">
+                                About Us
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://blog.creative-tim.com">
+                                Blog
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.creative-tim.com/license">
+                                Licenses
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="copyright float-right">
+                    &copy;
+                    <script>
+                        document.write(new Date().getFullYear())
+                    </script>, made with <i class="material-icons">favorite</i> by
+                    <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a> for a better web.
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>
+<div class="fixed-plugin">
+    <div class="dropdown show-dropdown">
+        <a href="#" data-toggle="dropdown">
+            <i class="fa fa-cog fa-2x"> </i>
+        </a>
+        <ul class="dropdown-menu">
+            <li class="header-title"> Sidebar Filters</li>
+            <li class="adjustments-line">
+                <a href="javascript:void(0)" class="switch-trigger active-color">
+                    <div class="badge-colors ml-auto mr-auto">
+                        <span class="badge filter badge-purple" data-color="purple"></span>
+                        <span class="badge filter badge-azure" data-color="azure"></span>
+                        <span class="badge filter badge-green" data-color="green"></span>
+                        <span class="badge filter badge-warning" data-color="orange"></span>
+                        <span class="badge filter badge-danger" data-color="danger"></span>
+                        <span class="badge filter badge-rose active" data-color="rose"></span>
+                    </div>
+                    <div class="clearfix"></div>
+                </a>
+            </li>
+            <li class="header-title">Images</li>
+            <li class="active">
+                <a class="img-holder switch-trigger" href="javascript:void(0)">
+                    <img src="../assets/img/sidebar-1.jpg" alt="">
+                </a>
+            </li>
+            <li>
+                <a class="img-holder switch-trigger" href="javascript:void(0)">
+                    <img src="../assets/img/sidebar-2.jpg" alt="">
+                </a>
+            </li>
+            <li>
+                <a class="img-holder switch-trigger" href="javascript:void(0)">
+                    <img src="../assets/img/sidebar-3.jpg" alt="">
+                </a>
+            </li>
+            <li>
+                <a class="img-holder switch-trigger" href="javascript:void(0)">
+                    <img src="../assets/img/sidebar-4.jpg" alt="">
+                </a>
+            </li>
+
+        </ul>
+    </div>
+</div>
