@@ -9,12 +9,20 @@ import { SidenavComponent } from './sidenav/sidenav.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LandlordsComponent } from './landlords/landlords.component';
 import { SharedModule } from '../shared/shared.module';
+<<<<<<< HEAD
 import { PropertiesComponent } from './properties/properties.component';
+=======
+import { CategoryComponent } from './category/category.component';
+>>>>>>> 3d9f7b24f0c61cce2f17781bdca533019d94b5f6
 
 
 
 @NgModule({
+<<<<<<< HEAD
   declarations: [DashboardComponent, SidenavComponent, NavbarComponent, LandlordsComponent, PropertiesComponent],
+=======
+  declarations: [DashboardComponent, SidenavComponent, NavbarComponent, LandlordsComponent, CategoryComponent],
+>>>>>>> 3d9f7b24f0c61cce2f17781bdca533019d94b5f6
   imports: [
     CommonModule,
     AgentRoutingModule,
