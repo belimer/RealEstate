@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { LanlordsService } from 'src/app/services/lanlords.service';
 import { Landlord } from 'src/app/models/landlords.model';
+import { LandlordsService } from 'src/app/services/landlords.service';
 
 @Component({
   selector: 'app-landlords',
@@ -13,7 +13,7 @@ export class LandlordsComponent implements OnInit {
   registerLandlord:FormGroup
   landLords: Landlord[]
   constructor(
-    private landlordService:LanlordsService,
+    private landlordService:LandlordsService,
     private fb: FormBuilder
   ) { }
 

@@ -8,7 +8,7 @@ import { Landlord } from '../models/landlords.model';
 @Injectable({
   providedIn: 'root'
 })
-export class LanlordsService {
+export class LandlordsService {
 
   constructor(
     private afa: AngularFireAuth,
