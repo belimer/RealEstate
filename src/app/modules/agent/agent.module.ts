@@ -5,14 +5,19 @@ import { LandlordModule } from '../landlord/landlord.module';
 import { ClientModule } from '../client/client.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AgentRoutingModule } from './agent-routing.module';
+import { SidenavComponent } from './sidenav/sidenav.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { LandlordsComponent } from './landlords/landlords.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 
 @NgModule({
-  declarations: [DashboardComponent],
+  declarations: [DashboardComponent, SidenavComponent, NavbarComponent, LandlordsComponent],
   imports: [
     CommonModule,
     AgentRoutingModule,
+    SharedModule
   ]
 })
 export class AgentModule { }
