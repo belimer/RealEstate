@@ -29,7 +29,7 @@ export class PropertiesService {
 		});
 	}
 	getRandomId() {
-		return Math.floor((Math.random()*6)+1);
+		return Math.floor((Math.random()*1000)+1);
 	}
 	
 	getProperties(){
