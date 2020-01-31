@@ -55,4 +55,31 @@ export class LandlordsService {
   getAllLanlords(){
    return this.afs.collection('landlords').snapshotChanges();
   }
+
+  createProperty(name, country, county,location, category, available){
+    const propertyId = this.getRandomId();
+    // var landlordTable = this.afs.collection('landlords')
+    // var landlord =landlordTable.ref.where("landlordId", "==", "").get();
+
+    this.afs.doc(`properties/${propertyId}`).set({
+      propertyId:propertyId,
+      propertyName: name,
+      country:country,
+      county: county,
+      location:location,
+      category:category,
+      AvailableSlots: available
+
+    })
+  }
+
+  getMyproperty(){
+    return this.afs.collection('properties').snapshotChanges();
+  }
+
+
+  getRandomId() {
+		return Math.floor((Math.random()*1000)+1);
+	}
+
 }

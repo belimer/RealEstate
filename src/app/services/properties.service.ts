@@ -22,10 +22,10 @@ export class PropertiesService {
 	createProperty(name, category, availableSlots){
 		const propertyId = this.getRandomId();
 		this.afs.doc(`properties/${propertyId}`).set({
-			name:name,
+			propertyName:name,
 			propertyId:propertyId,
 			category:category,
-			availableSlots:availableSlots
+			AvailableSlots:availableSlots
 		});
 	}
 	getRandomId() {

@@ -1,7 +1,12 @@
 export interface Property {
     propertyId?: string;
-    name?: string;
+    propertyName?: string;
     category?:string;
-    availableSlots?:number;
+    AvailableSlots?:number;
+    country?:string;
+    county?:string;
+    location?:string;
+    
+
   }
   
