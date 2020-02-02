@@ -5,6 +5,7 @@ import { LandlordsComponent } from './landlords/landlords.component';
 
 import { PropertiesComponent } from './properties/properties.component';
 import { CategoryComponent } from './category/category.component';
+import { UploadFileComponent } from './upload-file/upload-file.component';
 
 
 const routes: Routes = [
@@ -22,6 +23,10 @@ const routes: Routes = [
     {
     path: 'categories',
     component: CategoryComponent
+  },
+  {
+    path: 'upload',
+    component: UploadFileComponent
   }
 ];
 

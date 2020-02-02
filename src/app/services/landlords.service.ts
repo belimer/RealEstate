@@ -3,7 +3,6 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { MatSnackBar } from '@angular/material';
 import { Router } from '@angular/router';
-import { Landlord } from '../models/landlords.model';
 
 @Injectable({
   providedIn: 'root'
