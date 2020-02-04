@@ -1,0 +1,96 @@
+<button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
+  {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
+</button>
+<mat-horizontal-stepper [linear]="isLinear" #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Fill in your property details</ng-template>
+      <div class="details">
+      <mat-form-field>
+        <input matInput placeholder="PropertyName" formControlName="pname" required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Available slots" type="number" formControlName="slots" required>
+      </mat-form-field>
+      
+      <mat-form-field>
+        <input matInput placeholder="category" formControlName="category" required>
+      </mat-form-field>
+    </div>
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Fill in property location details</ng-template>
+      <div class="details">
+      <mat-form-field>
+        <input matInput placeholder="Country" formControlName="country" required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="County" formControlName="county" required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Town" formControlName="town" required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Location" formControlName="loc" required>
+      </mat-form-field>
+    </div>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="thirdFormGroup">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Property features</ng-template>
+      <div class="details">
+      <!-- <mat-list>
+        <mat-list-item><mat-checkbox checked=“true”>swimming pool</mat-checkbox>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item><mat-checkbox>hot shower</mat-checkbox>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item><mat-checkbox >wardrope
+        </mat-checkbox>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item><mat-checkbox labelPosition=“before”>electricity is token based
+        </mat-checkbox>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item><mat-checkbox >tiles foor
+        </mat-checkbox>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item><mat-checkbox >ventilation fans installed</mat-checkbox>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        
+        </mat-list> -->
+        <label *ngFor="let feature of featureList">
+    <mat-checkbox [formControlName]="i"></mat-checkbox>
+    {{feature.name}}
+  </label>
+    </div>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    You are now done.
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+     <!-- <button mat-button (click)="stepper.reset()">Reset</button> -->
+     <button mat-button (click)="onSubmit()">Save</button>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>
