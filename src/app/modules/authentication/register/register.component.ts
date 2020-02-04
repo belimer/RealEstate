@@ -37,7 +37,7 @@ export class RegisterComponent implements OnInit {
    const password = this.register.value['password'];
    const phone =this.register.value['phone'];
     
-  this.authService.registerUser(name, email, password,phone)
+  this.authService.registerLandlordUser(name, email, password,phone)
   this.register.reset();
 
   }

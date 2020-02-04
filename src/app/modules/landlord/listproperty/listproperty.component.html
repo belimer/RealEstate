@@ -1,0 +1,220 @@
+<!-- 
+    TODO: Add error validation using mat-error
+    Good example from my bookmarks: https://angular-templates.io/tutorials/about/angular-forms-and-validations
+
+    TODO: Spruce the form up. Resize fields and add nice labels
+
+    TODO: Title phone input 
+
+    TODO: Replace &nsbp; spacing with real css...
+-->
+
+<div class="container">
+  <div *ngIf="(isLoading | async) == false">
+  <mat-card>
+    <mat-card-title>
+        {{ user.displayName }}'s Profile
+    </mat-card-title>
+    <mat-card-content>
+        {{user.profileComplete ? '' : 'Please Complete your Profile before Continuing.'}}
+    </mat-card-content>
+  </mat-card>
+  <mat-vertical-stepper>
+    <mat-step [stepControl]="personal">
+      <form [formGroup]="personal" (ngSubmit)="onSubmit(false)">
+        <ng-template matStepLabel>Personal Info</ng-template>              
+        <p>
+          <mat-form-field>
+            <mat-select formControlName="gender" [errorStateMatcher]="matcher" placeholder="Gender">
+              <mat-option [value]="option" *ngFor="let option of genderOptions">
+                {{ option }}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="hasError('gender', 'required')">Gender is required</mat-error>
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field>
+            <input matInput [matDatepicker]="dob" [errorStateMatcher]="matcher" formControlName="dob" placeholder="Date of Birth">
+            <mat-datepicker-toggle matSuffix [for]="dob"></mat-datepicker-toggle>
+            <mat-datepicker #dob startView="year" [startAt]="birthdayStart"></mat-datepicker>
+            <mat-error *ngIf="hasError('dob', 'required')">Date of birth is required</mat-error>
+          </mat-form-field>
+        </p>
+        <!-- TODO: Make this change when a file is uploaded so it doesn't show no file uploaded -->
+        <p>Please Upload Your Headshot</p>
+        <p>        
+        <input #fileInput (change)="uploadProfilePic($event.target.files)" formControlName="headshot" type="file" ><br>
+    </p>          
+      <!-- <p>
+        <input #fileInput (change)="uploadCV($event.target.files)" formControlName="cv" type="file" ><br>
+         <span>Upload CV</span>
+        </p> -->
+        <br>
+        <p>
+          <button mat-raised-button matStepperNext 
+                  type="submit" [disabled]="!personal.valid">Submit & Next</button>
+        </p>
+      </form>
+    </mat-step>
+    <mat-step>
+      <form [formGroup]="contact" (ngSubmit)="onSubmit(false)">
+        <ng-template matStepLabel>Contact Info</ng-template>
+        <p>
+          <!-- STYLE ME -->
+          +&nbsp;
+          <mat-form-field formGroupName="phone" style="width:20px !important">
+            <input matInput [maxLength]="2" [errorStateMatcher]="matcher" placeholder="1" formControlName="cc">
+          </mat-form-field>
+          &nbsp;&nbsp;(&nbsp;
+          <mat-form-field formGroupName="phone" style="width:50px !important">
+            <input matInput [maxLength]="3" [errorStateMatcher]="matcher" placeholder="Area" formControlName="area">
+          </mat-form-field>
+          &nbsp;)&nbsp;&nbsp;
+          &nbsp;
+          <mat-form-field formGroupName="phone" style="width:50px !important">
+            <input matInput [maxLength]="3" [errorStateMatcher]="matcher" placeholder="Prefix" formControlName="prefix">
+          </mat-form-field>
+          &nbsp;&nbsp;-&nbsp;&nbsp;
+          <mat-form-field formGroupName="phone" style="width:50px !important">
+            <input matInput [maxLength]="4" [errorStateMatcher]="matcher" placeholder="Line" formControlName="line">
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field>
+            <input matInput placeholder="Email" [errorStateMatcher]="matcher" formControlName="email">
+          </mat-form-field>
+        </p>
+        <p>
+          <button mat-raised-button matStepperPrevious>Back</button>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <button mat-raised-button matStepperNext 
+                  type="submit" [disabled]="!personal.valid">Submit & Next</button>
+        </p>
+      </form>
+    </mat-step>
+    <mat-step>
+      <form [formGroup]="address" (ngSubmit)="onSubmit(false)">
+        <ng-template matStepLabel>Address</ng-template>
+        <p>
+          <mat-form-field>
+            <input matInput placeholder="Street" [errorStateMatcher]="matcher" formControlName="street">
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field>
+            <input matInput placeholder="Street 2" [errorStateMatcher]="matcher" formControlName="additional">
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field>
+            <input matInput placeholder="City" [errorStateMatcher]="matcher" formControlName="city">
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field>
+            <mat-select formControlName="country" placeholder="Country">
+              <mat-option [value]="option" *ngFor="let option of countryOptions">
+                {{ option }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field>
+            <input matInput placeholder="zip" formControlName="zip">
+          </mat-form-field>
+        </p>
+        <p>
+          <button mat-raised-button matStepperPrevious>Back</button>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <button mat-raised-button matStepperNext 
+                  type="submit" [disabled]="!personal.valid">Submit & Next</button>
+        </p>
+      </form>
+    </mat-step>
+    <mat-step>
+      <form [formGroup]="school" (ngSubmit)="onSubmit(false)">
+        <ng-template matStepLabel>Education</ng-template>
+        <p>
+          <mat-form-field>
+            <mat-select formControlName="graduated" placeholder="Graduated?">
+              <mat-option [value]="option" *ngFor="let option of yesNoOptions">
+                {{ option }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field>
+            <input matInput [matDatepicker]="gradDate" formControlName="gradDate" placeholder="Graduation Date">
+            <mat-datepicker-toggle matSuffix [for]="gradDate"></mat-datepicker-toggle>
+            <mat-datepicker #gradDate startView="year"></mat-datepicker>
+            <mat-hint>If you don't remember the day just use the first</mat-hint>
+          </mat-form-field>
+        </p>
+        <br>
+        <p>
+          <mat-form-field>
+            <mat-select formControlName="highestDegree" placeholder="Highest Degree">
+              <mat-option [value]="option" *ngFor="let option of degreeOptions">
+                {{ option }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field>
+            <input matInput placeholder="Major" formControlName="major">
+          </mat-form-field>
+        </p>
+        <p>
+          <button mat-raised-button matStepperPrevious>Back</button>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <button mat-raised-button matStepperNext 
+                  type="submit" [disabled]="!personal.valid">Submit & Next</button>
+        </p>
+      </form>
+    </mat-step>
+    <mat-step>
+      <form [formGroup]="work" (ngSubmit)="onSubmit(true)">
+        <ng-template matStepLabel>Employment</ng-template>
+        <p>
+          <mat-form-field>
+            <mat-select formControlName="status" placeholder="Status">
+              <mat-option [value]="option" *ngFor="let option of workStatusOptions">
+                {{ option }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field>
+            <input matInput placeholder="Most Recent Company" formControlName="company">
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field>
+            <input matInput [matDatepicker]="startDate" formControlName="startDate" placeholder="Start Date">
+            <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
+            <mat-datepicker #startDate startView="year"></mat-datepicker>
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field>
+            <input matInput [matDatepicker]="endDate" formControlName="endDate" placeholder="End Date">
+            <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
+            <mat-datepicker #endDate startView="year"></mat-datepicker>
+          </mat-form-field>
+        </p>
+        <p>
+          <button mat-raised-button matStepperPrevious>Back</button>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <button mat-raised-button matStepperNext 
+                  type="submit" [disabled]="!personal.valid">Submit & Next</button>
+        </p>
+      </form>
+    </mat-step>
+  </mat-vertical-stepper>
+</div>
+</div>
