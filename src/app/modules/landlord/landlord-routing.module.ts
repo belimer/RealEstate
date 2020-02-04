@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MypropertiesComponent } from './myproperties/myproperties.component';
 import { AddpropertyComponent } from './addproperty/addproperty.component';
+import { ListpropertyComponent } from './listproperty/listproperty.component';
 
 
 const routes: Routes = [
@@ -11,12 +12,8 @@ const routes: Routes = [
     component: DashboardComponent
   },
   {
-    path: 'myproperties',
-    component: MypropertiesComponent
-  },
-  {
-    path: 'addproperty',
-    component: AddpropertyComponent
+    path: ':id/listproperty',
+    component: ListpropertyComponent
   }
 ];
 

@@ -1,27 +1,18 @@
+<mat-toolbar color = "white">
+   <span class = "gap">E Agency</span>
+ 
+   <span class = "filler"></span>
+   <span>Login</span>
+</mat-toolbar>
 
-<div>
-    <mat-card style="background-color: rgb(16, 16, 156);" class="welcome">
-        <h1>How can we help?</h1>
-        <br />
-        <div class="search">
-            <mat-label>Search: </mat-label>
-            <mat-form-field>
-                <mat-label>Search </mat-label>
-                <input matInput placeholder="Search" class="input">
-            </mat-form-field>
-            <button button="submit" mat-raised-button color="primary">Search</button>
+<div class="hero">
+    <div class="text">
+        <h2>Landlord</h2>
+        <div class="register">
+            <a routerLink="/auth/register">
+                <button class="landlordregister">List property</button>
+            </a>
         </div>
-
-    </mat-card>
+    </div>
 </div>
 
-<div class="container">
-    <!-- <label class="image-upload-container btn btn-bwm">
-        <span>Select Image</span>
-        <input #imageInput type="file" accept="image/*" (change)="processFile(imageInput)">
-    </label> -->
-    <mat-form-field  class="image-upload-container btn btn-bwm">
-        <label>Select File to upload</label>
-            <input matInput type="file" accept="image/*"  (change)="processFile(imageInput)">
-          </mat-form-field>
-</div>

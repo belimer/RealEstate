@@ -16,30 +16,34 @@ export class AuthenticationService {
     private router: Router
   ) {}
 
-  registerUser(name, email, password, phone) {
+  registerLandlordUser(name, email, password, phone) {
     this.afa.auth
       .createUserWithEmailAndPassword(email, password)
       .then(authUser => {
-        this.createUser(authUser.user.uid, name, email, phone);
+        this.createLandLordUser(authUser.user.uid, name, email, phone);
       });
   }
 
-  createUser(uid, name, email, phone) {
+  createLandLordUser(uid, name, email, phone) {
     this.afs.doc(`users/${uid}`).set({
       name: name,
       uid: uid,
       email: email,
       phone: phone,
       roles: {
-        tenant: true,
+        tenant: false,
         agent: false,
-        landlord: false
+        landlord: true
       }
     });
-    this.showSnackBar();
+    this.showSnackBar(uid);
   }
-  showSnackBar() {
+  showSnackBar(uid) {
     this.openSnackBar('Registered Successfully!', 'Ok');
+    this.navigateToListProperty(uid);
+  }
+  navigateToListProperty(uid: any) {
+    this.router.navigate(['/landlord/' + {uid} + '/listproperty']);
   }
   openSnackBar(message: string, action: string) {
     this.snackBar.open(message, action, {
