@@ -43,7 +43,8 @@ export class AuthenticationService {
     this.navigateToListProperty(uid);
   }
   navigateToListProperty(uid: any) {
-    this.router.navigate(['/landlord/' + {uid} + '/listproperty']);
+    //this.router.navigate(['/landlord/' + {uid} + '/listproperty']);
+    this.router.navigate(['/auth/login'])
   }
   openSnackBar(message: string, action: string) {
     this.snackBar.open(message, action, {

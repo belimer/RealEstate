@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { Property } from '../models/property.model';
+import { Observable } from 'rxjs';
+import { PropertiesService } from '../services/properties.service';
 //import { ImageServiceService } from '../image-service.service';
 
 class ImageSnippet {
@@ -11,33 +15,29 @@ class ImageSnippet {
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
+  property:Property
   selectedFile: ImageSnippet;
+  properties: Property[]
 
-  constructor(){}
+  constructor(private afs:AngularFirestore, private propertyService: PropertiesService){}
 
   ngOnInit() {
+    this.getProperties();
   }
 
-  processFile(imageInput: any) {
-    const file: File = imageInput.files[0];
-    const reader = new FileReader();
+  getProperties() {
+    this.propertyService.getAllProperties().subscribe(allProperties=>{
+      this.properties=allProperties.map(item=>{
+        return{
+          id: item.payload.doc.id,
+          ...item.payload.doc.data()
+        }as Property
+      })
+    })
   }
 
-  //   reader.addEventListener('load', (event: any) => {
-
-  //     this.selectedFile = new ImageSnippet(event.target.result, file);
-
-  //     this.imageService.uploadImage(this.selectedFile.file).subscribe(
-  //       (res) => {
-        
-  //       },
-  //       (err) => {
-        
-  //       })
-  //   });
-
-  //   reader.readAsDataURL(file);
-  // }
-  uploadImage(){}
+  displayImage(){
+   let data = this.afs.collection("property").get();
+   
+  }
 }

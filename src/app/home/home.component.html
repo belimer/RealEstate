@@ -1,18 +1,67 @@
-<mat-toolbar color = "white">
-   <span class = "gap">E Agency</span>
- 
-   <span class = "filler"></span>
-   <span>Login</span>
+<mat-toolbar color="white">
+    <span class="gap">E Agency</span>
+
+    <span class="filler"></span>
+    <div class="push">
+        <span>
+            <a routerLink="/auth/register">
+                <button class="landlordregister">List property</button>
+            </a>
+        </span>
+        <span>
+            <a routerLink="/auth/login">
+                <button class="tenantregister">Login</button>
+            </a>
+        </span>
+
+    </div>
+
 </mat-toolbar>
 
 <div class="hero">
     <div class="text">
-        <h2>Landlord</h2>
-        <div class="register">
-            <a routerLink="/auth/register">
-                <button class="landlordregister">List property</button>
-            </a>
-        </div>
+
     </div>
 </div>
+<div>
+    <div class="irow">
 
+        <div class="col-sm-4 col-md mr-md-4 child" *ngFor="let property of properties;">
+            <mat-card class="example-card">
+                <mat-card-header>
+
+                    <mat-card-title>TAKE A LOOK AT OUR PROPERTIES</mat-card-title>
+                    <mat-card-subtitle>{{property.propertyName}}</mat-card-subtitle>
+                </mat-card-header>
+                <img mat-card-image src='{{property.imageUrl}}' alt="Photo of a Shiba Inu">
+                <mat-card-content>
+                    <p>
+                      
+                    </p>
+                    <div class="details">
+                        <mat-label>locatioin
+                            <mat-icon>map</mat-icon>
+                        </mat-label>
+                        <div class="details.content">
+                            <mat-label>mnarani</mat-label>
+                        </div>
+                    </div>
+                    <div class="details">
+                        <mat-label>Rent per month</mat-label>
+                        <div class="details.content">
+                            <mat-label>10000 Ksh</mat-label>
+                        </div>
+                    </div>
+
+                </mat-card-content>
+                <mat-card-actions>
+                    <button mat-button>VIEW</button>
+                    <button mat-button>RENT</button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+
+
+    </div>
+
+</div>

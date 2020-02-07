@@ -35,4 +35,7 @@ export class PropertiesService {
 	getProperties(){
 		return this.afs.collection('properties').snapshotChanges();
 	}
+	getAllProperties(){
+		return this.afs.collection('property').snapshotChanges();
+	}
 }

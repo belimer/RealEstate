@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar, ShowOnDirtyErrorStateMatcher } from '@angular/material';
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -72,8 +72,9 @@ export class LandlordsService {
     })
   }
 
+
   getMyproperty(){
-    return this.afs.collection('properties').snapshotChanges();
+    return this.afs.collection('property').snapshotChanges();
   }
 
 
@@ -81,4 +82,29 @@ export class LandlordsService {
 		return Math.floor((Math.random()*1000)+1);
 	}
 
+  addMyproperties(name, available,category, rent, town,country,county, location, swim, shower, token, fan, wardrobe, tiles, image){
+    const propertyId = this.getRandomId();
+    this.afs.doc(`property/${propertyId}`).set({
+      propertyId:propertyId,
+      propertyName: name,
+      country:country,
+      county: county,
+      location:location,
+      category:category,
+      Rent:rent,
+      AvailableSlots: available,
+      Town: town,
+      imageUrl: image,
+      features:{
+        shower: shower,
+        token: token,
+        fan: fan,
+        wardrobe: wardrobe,
+        tiles: tiles,
+        swim: swim
+ 
+
+      } 
+    })
+  }
 }
