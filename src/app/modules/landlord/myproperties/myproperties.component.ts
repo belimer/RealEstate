@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Property } from 'src/app/models/property.model';
 import { LandlordsService } from 'src/app/services/landlords.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-myproperties',
@@ -10,13 +11,14 @@ import { LandlordsService } from 'src/app/services/landlords.service';
 export class MypropertiesComponent implements OnInit {
   property:Property[];
 
-  constructor(private landlordService:LandlordsService) { }
+  constructor(private landlordService:LandlordsService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    this.getProperties();
+    const landlordId = this.activatedRoute.snapshot.params['id']
+    this.getProperties(landlordId);
   }
-  getProperties(){
-    this.landlordService.getMyproperty().subscribe(properties=>{
+  getProperties(landlordId){
+    this.landlordService.getMyproperty(landlordId).subscribe(properties=>{
       this.property = properties.map(item=>{
         return{
           id: item.payload.doc.id,

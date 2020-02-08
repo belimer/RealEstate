@@ -25,6 +25,7 @@ export class ListpropertyComponent implements OnInit {
   phone;
   downloadURL: Observable<string>
   imageUrl:string
+  uid: any
   constructor(private afs: AngularFirestore,
     private activatedRoute: ActivatedRoute,
     private formBuilder: FormBuilder,
@@ -61,8 +62,8 @@ export class ListpropertyComponent implements OnInit {
     // this.addCheckboxes();
 
 
-    const uid = this.activatedRoute.snapshot.params['id'];
-    this.getCurrentUser(uid);
+    this.uid = this.activatedRoute.snapshot.params['id'];
+    this.getCurrentUser(this.uid);
   }
 
 
@@ -113,7 +114,8 @@ export class ListpropertyComponent implements OnInit {
       this.form.value['fan'],
       this.form.value['wardrobe'],
       this.form.value['tiles'],
-      this.firstFormGroup.value['image']
+      this.firstFormGroup.value['image'],
+      this.uid
     );
 
   }

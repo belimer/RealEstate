@@ -73,17 +73,18 @@ export class LandlordsService {
   }
 
 
-  getMyproperty(){
-    return this.afs.collection('property').snapshotChanges();
+  getMyproperty(uid){
+    return this.afs.collection('property', ref => ref.where('landlordId', '==', uid)).snapshotChanges();
   }
 
 
   getRandomId() {
 		return Math.floor((Math.random()*1000)+1);
-	}
+  }
+  
 
-  addMyproperties(name, available,category, rent, town,country,county, location, swim, shower, token, fan, wardrobe, tiles, image){
-    const propertyId = this.getRandomId();
+  addMyproperties(name, available,category, rent, town,country,county, location, swim, shower, token, fan, wardrobe, tiles, image, uid){
+    const propertyId = this.afs.createId();
     this.afs.doc(`property/${propertyId}`).set({
       propertyId:propertyId,
       propertyName: name,
@@ -95,6 +96,7 @@ export class LandlordsService {
       AvailableSlots: available,
       Town: town,
       imageUrl: image,
+      landlordId: uid,
       features:{
         shower: shower,
         token: token,

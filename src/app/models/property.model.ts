@@ -9,7 +9,8 @@ export interface Property {
     features?: Features;
     Town?:string;
     imageUrl:string;
-    Rent:number
+    Rent:number;
+    landLordId?: string;
     
   
   }
