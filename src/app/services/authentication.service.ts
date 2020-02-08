@@ -4,6 +4,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { MatSnackBar } from '@angular/material';
 import { Router } from '@angular/router';
 import { User } from '../models/user.model';
+import { PropertiesService } from './properties.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,7 @@ export class AuthenticationService {
     private afa: AngularFireAuth,
     private afs: AngularFirestore,
     private snackBar: MatSnackBar,
+    private propertyService: PropertiesService,
     private router: Router
   ) {}
 
@@ -20,11 +22,31 @@ export class AuthenticationService {
     this.afa.auth
       .createUserWithEmailAndPassword(email, password)
       .then(authUser => {
-        this.createLandLordUser(authUser.user.uid, name, email, phone);
+        this.createLandLordUser(authUser.user.uid, name, email, phone, password);
       });
   }
-
-  createLandLordUser(uid, name, email, phone) {
+  registerTenantUser(name, email, password, phone, propertyId){
+    this.afa.auth.createUserWithEmailAndPassword(email, password).then(authUser => {
+      this.createTenantUser(authUser.user.uid, name, email, phone, password, propertyId);
+    })
+  }
+  createTenantUser(uid, name, email, phone, password, propertyId) {
+    this.afs.doc(`users/${uid}`).set({
+      name: name,
+      uid: uid,
+      email: email,
+      phone: phone,
+      roles: {
+        tenant: true,
+        agent: false,
+        landlord: false
+      }
+    });
+   
+    this.propertyService.bookProperty(uid, name,email, phone, propertyId )
+    this.userLogin(email, password)
+  }
+  createLandLordUser(uid, name, email, phone, password) {
     this.afs.doc(`users/${uid}`).set({
       name: name,
       uid: uid,
@@ -36,11 +58,12 @@ export class AuthenticationService {
         landlord: true
       }
     });
+    this.userLogin(email, password)
     this.showSnackBar(uid);
   }
   showSnackBar(uid) {
     this.openSnackBar('Registered Successfully!', 'Ok');
-    this.navigateToListProperty(uid);
+   
   }
   navigateToListProperty(uid: any) {
     //this.router.navigate(['/landlord/' + {uid} + '/listproperty']);
@@ -82,4 +105,5 @@ export class AuthenticationService {
   navigateToTenantDashboard(uid) {
     this.router.navigate(['/tenant/' + { uid } + '/dashboard']);
   }
+
 }

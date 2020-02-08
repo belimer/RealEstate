@@ -108,8 +108,8 @@ mat-card{
 }
 .details{
 	width: 200px;
-	background-color: teal;
-	color: white;
+	
+	color: black;
 	align-items: flex-start;
 	/* align-content: center; */
 	display: flex;
@@ -125,4 +125,28 @@ mat-card{
 	/* flex: 1 0 21%; /* explanation below */
 	width:  25%;
 	padding: 20px 20px 20px;
+  }
+
+  .btn_view{
+	  display: flex;
+	  align-content: center;
+	  text-align: center;
+	  background-color: #2196f3;
+	  color: white;
+	  cursor: pointer;
+  }
+
+  .btn_rent{
+	display: flex;
+	color: white;
+	align-content: center;
+	text-align: center;
+	background-color: teal;
+	cursor: pointer;
+  }
+  .rent{
+	  font-size: 18;
+	  font-style: bold;
+	  color: teal;
+
   }

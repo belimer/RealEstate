@@ -18,12 +18,16 @@ import { AuthenticationModule } from './modules/authentication/authentication.mo
 import { AgentModule } from './modules/agent/agent.module';
 import { LandlordModule } from './modules/landlord/landlord.module';
 import { ClientModule } from './modules/client/client.module';
+import { PropDetailsComponent } from './prop-details/prop-details.component';
+import { BookRoomComponent } from './book-room/book-room.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    PropDetailsComponent,
+    BookRoomComponent,
 
   ],
   imports: [
