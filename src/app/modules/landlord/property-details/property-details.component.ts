@@ -3,6 +3,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { Property } from 'src/app/models/property.model';
 import { ActivatedRoute } from '@angular/router';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { Booking } from 'src/app/models/bookings.model';
 
 
 @Component({
@@ -30,8 +31,8 @@ export class PropertyDetailsComponent implements OnInit {
   token: boolean;
   tiles: boolean;
   fan: boolean;
-  
 
+  bookings: Booking[];
 
   constructor(private afs:AngularFirestore,
               private activatedRoute: ActivatedRoute,
@@ -60,6 +61,19 @@ export class PropertyDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.getPropertyDetails();
+    this.getProperyOccupants();
+  }
+  getProperyOccupants() {
+    let propertyId = this.activatedRoute.snapshot.params['id']
+    this.afs.collection('bookings', ref => ref.where('propertyId', '==', propertyId)).snapshotChanges().subscribe(booking=>{
+      this.bookings = booking.map(item=>{
+        return{
+          id: item.payload.doc.id,
+          ...item.payload.doc.data()
+        }as Booking
+      })
+    })
+    
   }
   getPropertyDetails() {
     let propertyId = this.activatedRoute.snapshot.params['id']

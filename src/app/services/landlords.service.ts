@@ -52,7 +52,7 @@ export class LandlordsService {
     })
   }
   getAllLanlords(){
-   return this.afs.collection('landlords').snapshotChanges();
+   return this.afs.collection('users', ref => ref.where('roles.landlord', '==', true)).snapshotChanges();
   }
 
   createProperty(name, country, county,location, category, available){
@@ -104,9 +104,7 @@ export class LandlordsService {
         wardrobe: wardrobe,
         tiles: tiles,
         swim: swim
- 
-
-      } 
+       } 
     })
   }
 }

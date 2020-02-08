@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Property } from 'src/app/models/property.model';
 import { LandlordsService } from 'src/app/services/landlords.service';
 import { ActivatedRoute } from '@angular/router';
+import { Booking } from 'src/app/models/bookings.model'
 
 @Component({
   selector: 'app-myproperties',
@@ -10,12 +11,13 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class MypropertiesComponent implements OnInit {
   property:Property[];
-
+  bookings: Booking[]
   constructor(private landlordService:LandlordsService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
     const landlordId = this.activatedRoute.snapshot.params['id']
     this.getProperties(landlordId);
+   
   }
   getProperties(landlordId){
     this.landlordService.getMyproperty(landlordId).subscribe(properties=>{

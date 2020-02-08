@@ -14,14 +14,16 @@ import { CategoryComponent } from './category/category.component';
 import { UploadFileComponent } from './upload-file/upload-file.component';
 import { TenantsComponent } from './tenants/tenants.component';
 import { TenantdetailsComponent } from './tenantdetails/tenantdetails.component';
-
+import { LandlorddetailsComponent } from './landlorddetails/landlorddetails.component';
 
 
 @NgModule({
   declarations: [DashboardComponent, SidenavComponent, TenantsComponent, NavbarComponent, LandlordsComponent, PropertiesComponent,
      CategoryComponent,
      UploadFileComponent,
-     TenantdetailsComponent],
+     TenantdetailsComponent,
+     LandlorddetailsComponent
+    ],
  
   imports: [
     CommonModule,

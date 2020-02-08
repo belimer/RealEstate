@@ -8,6 +8,7 @@ import { CategoryComponent } from './category/category.component';
 import { UploadFileComponent } from './upload-file/upload-file.component';
 import { TenantsComponent } from './tenants/tenants.component';
 import { TenantdetailsComponent } from './tenantdetails/tenantdetails.component';
+import { LandlorddetailsComponent } from './landlorddetails/landlorddetails.component'
 
 
 const routes: Routes = [
@@ -37,6 +38,11 @@ const routes: Routes = [
   {
     path: 'tenant/:id/view',
     component: TenantdetailsComponent
+  },
+  {
+    path: 'landlord/:id/view',
+    component: LandlorddetailsComponent
+    
   }
 ];
 
