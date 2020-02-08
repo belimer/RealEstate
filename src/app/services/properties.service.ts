@@ -50,7 +50,8 @@ export class PropertiesService {
 		  name: name,
 		  email: email,
 		  phone: phone,
-		  uid: uid
+		  uid: uid,
+		  date: new Date()
 	
 	
 		})

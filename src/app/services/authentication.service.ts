@@ -10,6 +10,7 @@ import { PropertiesService } from './properties.service';
   providedIn: 'root'
 })
 export class AuthenticationService {
+  id: string;
   constructor(
     private afa: AngularFireAuth,
     private afs: AngularFirestore,
@@ -36,6 +37,7 @@ export class AuthenticationService {
       uid: uid,
       email: email,
       phone: phone,
+      propertyId: propertyId,
       roles: {
         tenant: true,
         agent: false,
@@ -83,27 +85,32 @@ export class AuthenticationService {
     });
   }
   getCurrentUser(uid) {
+    this.id = uid;
     this.afs
-      .doc<User>(`users/${uid}`)
+      .doc<User>(`users/${this.id }`)
       .valueChanges()
       .subscribe(user => {
         if (user.roles.agent) {
-          this.navigateToAgentDashboard(uid);
+          this.navigateToAgentDashboard(this.id );
         } else if (user.roles.landlord) {
-          this.navigateToLandLordDashboard(uid);
+          this.navigateToLandLordDashboard(this.id );
         } else if (user.roles.tenant) {
-          this.navigateToTenantDashboard(uid);
+          console.log("User Email" + user.email)
+          this.navigateToTenantDashboard(this.id );
         }
       });
   }
+
+
   navigateToLandLordDashboard(uid) {
-    this.router.navigate(['/landlord/' + { uid } + '/dashboard']);
+    
+    this.router.navigate(['/landlord/' + uid + '/dashboard']);
   }
   navigateToAgentDashboard(uid) {
-    this.router.navigate(['/agent/' + { uid } + '/dashboard']);
+    this.router.navigate(['/agent/' + uid + '/dashboard']);
   }
   navigateToTenantDashboard(uid) {
-    this.router.navigate(['/tenant/' + { uid } + '/dashboard']);
+    this.router.navigate(['/tenant/'  + uid + '/dashboard']);
   }
 
 }

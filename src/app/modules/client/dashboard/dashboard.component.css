@@ -1,0 +1,22 @@
+.hero{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    height: 200px;
+    font-size: 20px;
+}
+.hero > h5 {
+    font-display: block;
+    font-size: 30px;
+    color: black;
+}
+.rent{
+    font-size: 18px;
+    color: teal;
+}
+
+.rent > span {
+    font-size: 11px;
+}

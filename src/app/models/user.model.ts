@@ -6,6 +6,7 @@ export interface User {
   photoURL?: string;
   nationalIdURL?: string;
   nationalID?: string;
+  propertyId?: string;
   roles?: Roles;
 }
 
