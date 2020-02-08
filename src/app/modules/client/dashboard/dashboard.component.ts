@@ -4,6 +4,7 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { User } from 'src/app/models/user.model';
 import { Property } from 'src/app/models/property.model';
+import { Rent } from 'src/app/models/rent.model';
 
 @Component({
   selector: 'app-dashboard',
@@ -24,6 +25,8 @@ export class DashboardComponent implements OnInit {
   propLocation: any
   propRent: any
   propId: any
+
+  rents: Rent[]
   constructor(private activatedRoute: ActivatedRoute, 
               private authService: AuthenticationService,
               private afs: AngularFirestore) { }
@@ -31,6 +34,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     this.uid = this.activatedRoute.snapshot.params['id'];
     this.getCurrentUser(this.uid);
+    this.getUserRent(this.uid);
   }
   getCurrentUser(uid){
     this.afs.doc<User>(`users/${uid}`).valueChanges().subscribe(user =>{
@@ -47,6 +51,17 @@ export class DashboardComponent implements OnInit {
      this.propTown = property.Town;
      this.propRent = property.Rent
    })
+  }
+
+  getUserRent(uid){
+    this.afs.collection('rent', ref => ref.where('tenatId', '==', uid)).snapshotChanges().subscribe(rent => {
+      this.rents=rent.map(item=>{
+        return{
+          id: item.payload.doc.id,
+          ...item.payload.doc.data()
+        }as Rent
+      })
+    })
   }
 
 }

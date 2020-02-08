@@ -12,13 +12,16 @@ import { SharedModule } from '../shared/shared.module';
 import { PropertiesComponent } from './properties/properties.component';
 import { CategoryComponent } from './category/category.component';
 import { UploadFileComponent } from './upload-file/upload-file.component';
+import { TenantsComponent } from './tenants/tenants.component';
+import { TenantdetailsComponent } from './tenantdetails/tenantdetails.component';
 
 
 
 @NgModule({
-  declarations: [DashboardComponent, SidenavComponent, NavbarComponent, LandlordsComponent, PropertiesComponent,
+  declarations: [DashboardComponent, SidenavComponent, TenantsComponent, NavbarComponent, LandlordsComponent, PropertiesComponent,
      CategoryComponent,
-     UploadFileComponent],
+     UploadFileComponent,
+     TenantdetailsComponent],
  
   imports: [
     CommonModule,
