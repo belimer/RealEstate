@@ -8,51 +8,65 @@
       <!-- End Navbar -->
       <div class="content">
         <div class="container-fluid">
-        <div class="hero">
-           <h5> Welcome, {{name}} !</h5>
-            <div class="prop">
-                <h6>You are at: {{propName}} residence</h6>
-                
-            </div>
-             <div class="prop">
-               <p>Located at: {{propCounty}}, {{propTown}}, {{propLocation}}.
-            </div>
-              <div class="rent">
-               <p>Rent is: KES  {{propRent}}/<span>month</span> deadline: 5th </p>
-            </div>
-        </div>
         <div class="card">
             <div class="card-header card-header-warning">
-                <h4 class="card-title">My Rent</h4>
-                <p class="card-category"></p>
+                <h4 class="card-title">Issues/Concerns</h4>
+                <p class="card-category">Use this section to raise issues to the agent</p>
             </div>
             <div class="card-body table-responsive ">
-
-                <table class="table table-hover">
+                <mat-tab-group>
+                    <mat-tab label="My Concerns">
+                        <table class="table table-hover">
                     <thead class="text-warning">
-                        <th>Date Paid</th>
-                        <th>Mode of Payment</th>
-                        <th>Payment ID</th>
-                        <th>Year</th>
-                        <th>Month</th>
-                        <th>Amount Paid</th>
-                        <th>Arrears</th>
+                        <th>Issue</th>
+                        <th>Description</th>
+                        <th>Date Raised</th>
+                        <th>Status</th>
+                       
                     
                     </thead>
                     <tbody>
-                        <tr *ngFor="let rent of rents">
-                            <td>{{rent.datePaid.toDate() | date}}</td>
-                            <td>{{rent.modeofpayment}}</td>
-                            <td>{{rent.paymentid}}</td>
-                            <td>{{rent.year}}</td>
-                            <td>{{rent.month}}</td>
-                            <td>{{rent.amount}}</td>
-                            <td>{{rent.arrears}}</td>
-                        
+                        <tr *ngFor="let issue of issues">
+                            <td>{{issue.title}}</td>
+                            <td>{{issue.description}}</td>
+                            <td>{{issue.date.toDate() | date}}</td>
+                            <td>{{issue.status}}</td>
+                           
                         </tr>
 
                     </tbody>
                 </table>
+                    </mat-tab>
+                     <mat-tab label="Raise an Concerns">
+                        <div class="card-body">
+                                <form [formGroup]="issuesForm">
+                                
+                                    <div class="row">
+                                    <div class="col-md-5">
+                                        <div class="form-group">
+                                        <label class="bmd-label-floating">Title</label>
+                                        <input type="text" formControlName="title" class="form-control">
+                                       
+                                        </div>
+                                    </div>
+                                    </div>
+                                        
+                                    <div class="row">
+                                    <div class="form-group">
+                                      <label class="bmd-label-floating">Description</label>
+                                        <textarea id="w3mission" formControlName="description" rows="4" cols="50">
+                                        
+                                        </textarea>
+                                        </div>
+                                    </div>
+                                   
+                                
+                                    <button type="submit" (click)="submit()"class="btn btn-primary pull-right">Receive Payment</button>
+                                    <div class="clearfix"></div>
+                                </form>
+                                </div>
+                    </mat-tab>
+                </mat-tab-group>
             </div>
         </div>
 

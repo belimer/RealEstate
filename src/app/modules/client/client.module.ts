@@ -7,14 +7,17 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ClientRoutingModule } from './client-routing.module';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
+import { ConcernsComponent } from './concerns/concerns.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 
 @NgModule({
-  declarations: [DashboardComponent, NavbarComponent, SidenavComponent],
+  declarations: [DashboardComponent, NavbarComponent, SidenavComponent, ConcernsComponent],
   imports: [
     CommonModule,
-    ClientRoutingModule
+    ClientRoutingModule,
+    SharedModule
     
   ]
 })

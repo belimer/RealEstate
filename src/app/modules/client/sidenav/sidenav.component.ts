@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-sidenav',
@@ -6,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sidenav.component.css']
 })
 export class SidenavComponent implements OnInit {
-
-  constructor() { }
+  uid: any
+  constructor(private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
+    this.uid = this.activatedRoute.snapshot.params['id']
   }
 
 }

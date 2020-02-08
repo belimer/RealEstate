@@ -32,8 +32,6 @@ import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
-
-
 @NgModule({
   declarations: [],
   imports: [
