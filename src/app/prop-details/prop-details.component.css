@@ -1,0 +1,15 @@
+.text, .links {
+    float: left;
+}
+
+.text {
+    width: 70%;
+}
+
+.links {
+    width: 30%;
+}
+
+.dropdown {
+    width: 100%;
+}
