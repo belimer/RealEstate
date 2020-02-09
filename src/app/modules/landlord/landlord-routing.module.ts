@@ -6,6 +6,7 @@ import { AddpropertyComponent } from './addproperty/addproperty.component';
 import { ListpropertyComponent } from './listproperty/listproperty.component';
 import { UploadImageComponent } from './upload-image/upload-image.component';
 import { PropertyDetailsComponent } from './property-details/property-details.component';
+import { PaymentsComponent } from './payments/payments.component';
 
 
 const routes: Routes = [
@@ -31,6 +32,10 @@ const routes: Routes = [
   {
     path: ':id/propertydetails',
     component: PropertyDetailsComponent
+  },
+  {
+    path: ':id/payments',
+    component: PaymentsComponent
   }
 ];
 

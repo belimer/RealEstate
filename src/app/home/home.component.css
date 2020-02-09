@@ -4,7 +4,7 @@
 .gap {
 	margin-right: 10px;
 }
-.push{
+.push {
 	display: flex;
 	/* flex-direction: row; */
 	gap: 30px;
@@ -69,7 +69,6 @@ button {
 	/* padding: 10px; */
 	flex: 1;
 	display: flex;
-	
 }
 .gap {
 	gap: 20%;
@@ -88,70 +87,65 @@ mat-card{
 	
 
 } */
-mat-card{
+mat-card {
 	max-width: 400px;
 }
-  
-  .example-header-image {
+
+.example-header-image {
 	background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
 	background-size: cover;
-  }
-  mat-card-actions {
-    display: flex;
-    justify-content: space-between;
 }
-.irow{
+mat-card-actions {
+	display: flex;
+	justify-content: space-between;
+}
+.irow {
 	display: flex;
 	flex-direction: row;
-	padding: 30px 20px 10px ;
+	padding: 30px 20px 10px;
 	flex-wrap: wrap;
 }
-.details{
+.details {
 	width: 200px;
-	
+
 	color: black;
 	align-items: flex-start;
 	/* align-content: center; */
 	display: flex;
 	justify-content: space-between;
 	flex-direction: row;
-	
 }
-.details.content{
-	/* align-items: flex-end; */
-}
+
 
 .child {
-	
 	padding: 20px 20px 20px;
-  }
+}
 
-  .btn_view{
-	  display: flex;
-	  align-content: center;
-	  text-align: center;
-	  background-color: #2196f3;
-	  color: white;
-	  cursor: pointer;
-  }
+.btn_view {
+	display: flex;
+	align-content: center;
+	text-align: center;
+	background-color: #2196f3;
+	color: white;
+	cursor: pointer;
+}
 
-  .btn_rent{
+.btn_rent {
 	display: flex;
 	color: white;
 	align-content: center;
 	text-align: center;
 	background-color: teal;
 	cursor: pointer;
-  }
-  .rent{
-	  font-size: 18;
-	  font-style: bold;
-	  color: teal;
-
-  }
-  mat-card-title{
-	  font-size: 15px;
-  }
-  mat-card-title > span {
-	  font-size: 10px;
-  }
+}
+.rent {
+	font-size: 18;
+	font-style: bold;
+	color: teal;
+}
+mat-card-title {
+	font-size: 15px;
+}
+mat-card-title > span {
+	font-size: 10px;
+}

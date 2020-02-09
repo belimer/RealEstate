@@ -1,0 +1,4 @@
+{
+    "prettier.alignObjectProperties": true,
+    "prettier.breakProperty": true
+}

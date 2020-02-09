@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { PropertiesService } from 'src/app/services/properties.service';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { Property } from 'src/app/models/property.model';
+import { LandlordsService } from 'src/app/services/landlords.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-properties',
@@ -10,39 +12,18 @@ import { Property } from 'src/app/models/property.model';
 })
 export class PropertiesComponent implements OnInit {
 
-  propertyForm: FormGroup;
-  property:Property[]
+  property:Property[];
 
-  constructor(
-    private propertyService: PropertiesService,
-    private fb: FormBuilder
-  ) { }
-
-  categories: any = ['single room', 'bedsitter', 'one-bedroom', 'two-bedroom']
-
-
-
-
-
-  /* Select Dropdown error handling */
-  public handleError = (controlName: string, errorName: string) => {
-    return this.propertyForm.controls[controlName].hasError(errorName);
-  }
-
-
+  constructor(private landlordService:LandlordsService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    this.propertyForm = this.fb.group(
-      {
-        name: [''],
-        category: [''],
-        available: ['']
-      });
-      this.getProperties();
+   
+    this.getProperties();
+   
   }
-  getProperties() {
-    this.propertyService.getProperties().subscribe(allProperties=>{
-      this.property=allProperties.map(item=>{
+  getProperties(){
+    this.landlordService.getAllproperties().subscribe(properties=>{
+      this.property = properties.map(item=>{
         return{
           id: item.payload.doc.id,
           ...item.payload.doc.data()
@@ -50,13 +31,4 @@ export class PropertiesComponent implements OnInit {
       })
     })
   }
-  onAdd(){
-    this.propertyService.createProperty(
-      this.propertyForm.value['name'],
-      this.propertyForm.value['category'],
-      this.propertyForm.value['available']
-    )
-   
-  }
-
 }

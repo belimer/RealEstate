@@ -15,20 +15,23 @@ import { UploadFileComponent } from './upload-file/upload-file.component';
 import { TenantsComponent } from './tenants/tenants.component';
 import { TenantdetailsComponent } from './tenantdetails/tenantdetails.component';
 import { LandlorddetailsComponent } from './landlorddetails/landlorddetails.component';
-
+import { AddPropertyComponent } from './add-property/add-property.component';
 
 @NgModule({
-  declarations: [DashboardComponent, SidenavComponent, TenantsComponent, NavbarComponent, LandlordsComponent, PropertiesComponent,
-     CategoryComponent,
-     UploadFileComponent,
-     TenantdetailsComponent,
-     LandlorddetailsComponent
-    ],
- 
-  imports: [
-    CommonModule,
-    AgentRoutingModule,
-    SharedModule
-  ]
+	declarations: [
+		DashboardComponent,
+		SidenavComponent,
+		TenantsComponent,
+		NavbarComponent,
+		LandlordsComponent,
+		PropertiesComponent,
+		CategoryComponent,
+		UploadFileComponent,
+		TenantdetailsComponent,
+		LandlorddetailsComponent,
+		AddPropertyComponent
+	],
+
+	imports: [CommonModule, AgentRoutingModule, SharedModule]
 })
-export class AgentModule { }
+export class AgentModule {}

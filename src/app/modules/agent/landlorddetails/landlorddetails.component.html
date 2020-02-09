@@ -22,12 +22,6 @@
                   <h4 class="card-title">{{name}}</h4>
                    <h4 class="card-title">{{email}}</h4>
                     <h4 class="card-title">{{phone}}</h4>
-
-                  <div class="card-description">
-                    <h4 class="card-title">{{propName}}'s Residence</h4>
-                    <h4 class="card-title">{{propCounty}}, {{propTown}}, {{propLocation}}</h4>
-                    <h4 class="card-title">KES {{propRent}} /month</h4>
-                 </div>
                  
                 </div>
               </div>
@@ -41,6 +35,7 @@
                 </div>
                 <mat-tab-group>
                     <mat-tab label="Properties">
+                    
                     </mat-tab>
                     <mat-tab label="Payments">
                         <mat-tab-group>
@@ -59,14 +54,14 @@
                                         
                                         </thead>
                                         <tbody>
-                                            <tr *ngFor="let rent of rents">
-                                                <td>{{rent.datePaid.toDate() | date}}</td>
-                                                <td>{{rent.modeofpayment}}</td>
-                                                <td>{{rent.paymentid}}</td>
-                                                <td>{{rent.year}}</td>
-                                                <td>{{rent.month}}</td>
-                                                <td>{{rent.amount}}</td>
-                                                <td>{{rent.arrears}}</td>
+                                            <tr *ngFor="let payment of payments">
+                                                <td>{{payment.datePaid.toDate() | date}}</td>
+                                                <td>{{payment.modeofpayment}}</td>
+                                                <td>{{payment.paymentid}}</td>
+                                                <td>{{payment.year}}</td>
+                                                <td>{{payment.month}}</td>
+                                                <td>{{payment.amount}}</td>
+                                                <td>{{payment.arrears}}</td>
                                             
                                             </tr>
 
@@ -126,7 +121,7 @@
                                     </div>
                                     </div>
                                 
-                                    <button type="submit" (click)="submit()"class="btn btn-primary pull-right">Receive Payment</button>
+                                    <button type="submit" (click)="submit()"class="btn btn-primary pull-right">Make Payment</button>
                                     <div class="clearfix"></div>
                                 </form>
                                 </div>

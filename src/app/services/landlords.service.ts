@@ -76,6 +76,9 @@ export class LandlordsService {
   getMyproperty(uid){
     return this.afs.collection('property', ref => ref.where('landlordId', '==', uid)).snapshotChanges();
   }
+  getAllproperties(){
+    return this.afs.collection('property').snapshotChanges();
+  }
 
 
   getRandomId() {

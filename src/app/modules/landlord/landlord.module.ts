@@ -10,6 +10,8 @@ import { AddpropertyComponent } from './addproperty/addproperty.component';
 import { SharedModule } from '../shared/shared.module';
 import { UploadImageComponent } from './upload-image/upload-image.component';
 import { PropertyDetailsComponent } from './property-details/property-details.component';
+import { PaymentsComponent } from './payments/payments.component';
+import { ExitComponent } from './exit/exit.component';
 
 @NgModule({
 	declarations: [
@@ -20,7 +22,9 @@ import { PropertyDetailsComponent } from './property-details/property-details.co
 		MypropertiesComponent,
 		ListpropertyComponent, 
 		UploadImageComponent,
-		PropertyDetailsComponent
+		PropertyDetailsComponent,
+		PaymentsComponent,
+		ExitComponent
 	],
 	imports: [CommonModule, LandlordRoutingModule, SharedModule]
 })
