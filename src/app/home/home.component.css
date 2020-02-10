@@ -26,6 +26,11 @@ h2 {
 	color: #2196f3;
 	font-size: 18px;
 }
+mat-card-title{
+	/* align-content: center;
+	align-self: center; */
+	align-items: center;
+}
 
 .register {
 	display: flex;

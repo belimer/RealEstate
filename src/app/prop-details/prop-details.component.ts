@@ -17,7 +17,7 @@ export class PropDetailsComponent implements OnInit {
   rent:any
   category:any
   description:any
-  image: string;
+  image: any
   propertyId: any;
 
   constructor(
@@ -38,7 +38,7 @@ export class PropDetailsComponent implements OnInit {
       this.category=details.category;
       this.description = details.description;
       this.propertyId = details.propertyId;
-     // this.image = details.imageUrl
+     this.image = details.imageUrl
 
       
     
