@@ -13,3 +13,8 @@
 .dropdown {
     width: 100%;
 }
+.push {
+	display: flex;
+	/* flex-direction: row; */
+	gap: 30px;
+}

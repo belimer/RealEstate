@@ -50,7 +50,8 @@ export class AddPropertyComponent implements OnInit {
       category: ['', Validators.required],
       image: [''],
       rent: ['', Validators.required],
-      landlordId: ['', Validators.required]
+      landlordId: ['', Validators.required],
+      description:['']
     });
     this.secondFormGroup = this.formBuilder.group({
       country: ['', Validators.required],
@@ -105,6 +106,7 @@ export class AddPropertyComponent implements OnInit {
       this.firstFormGroup.value['pname'],
       this.firstFormGroup.value['slots'],
       this.firstFormGroup.value['category'],
+      this.firstFormGroup.value['description'],
       this.firstFormGroup.value['rent'],
       this.secondFormGroup.value['town'],
       this.secondFormGroup.value['country'],

@@ -1,6 +1,90 @@
-<mat-card-content>
+<!-- <mat-card-content>
       <div fxLayout="row" fxFlex="100" fxLayoutAlign="space-around center">
         <div fxLayout="column">First</div>
         <div fxLayout="column">Second</div>
       </div>
-</mat-card-content>
+</mat-card-content> -->
+
+<div class="container body-content">
+
+
+
+
+  <div class="container">
+
+
+    <div class="row justify-content-center" style="padding-top:10px;">
+      <h1>Property Details</h1>
+
+
+    </div>
+    <div class="row justify-content-start" style="padding-top:10px;">
+
+      <div class="col" style="padding-top:10px;">
+        <h1>{{propName}}</h1>
+        <img style="height: 300px;" src="../../assets/img/house1.jpg">
+        <mat-card style="width: 450px;">
+        
+          <label>Category: {{category}}</label><br>
+          <label>Rent: {{rent}}</label>
+        </mat-card>
+
+
+      </div>
+      <div class="col" style="padding-top:10px;">
+          <h1>Description</h1>
+          <p style="color: black;" style="display: block;">
+           {{description}}
+          </p>
+  
+  
+  
+        </div>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="row justify-content-center" style="padding-top:10px;">
+      <h1>Related images</h1>
+    </div>
+    <div class="row justify-content-start" style="padding-top:10px;">
+
+
+      <div class="col" style="padding-top:10px;">
+
+        <label style="font-size:30px;">Image</label>
+        <img style="height:300px" src="../../assets/img/iphonex.png">
+
+
+      </div>
+      <div class="col" style="padding-top:10px;">
+        <label style="font-size:30px;">Image</label>
+        <img style="height: 300px;" src="../../assets/img/Macbook.png">
+      </div>
+
+      <div class="col" style="padding-top:10px;">
+
+        <label style="font-size:30px;">Image</label>
+        <img style="height:300px" src="../../assets/img/iphonex.png">
+
+
+      </div>
+    </div>
+
+    <div class="row justify-content-end" style="padding-top:10px;">
+      <div class="push">
+      <button class="btn btn-primary">Image</button>
+
+      <a routerLink='/auth/login'>
+        <button class="btn btn-primary">Book</button>
+      </a>
+      </div>
+
+    </div>
+
+
+
+
+  </div>
+
+
+
+</div>

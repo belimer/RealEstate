@@ -86,7 +86,7 @@ export class LandlordsService {
   }
   
 
-  addMyproperties(name, available,category, rent, town,country,county, location, swim, shower, token, fan, wardrobe, tiles, image, uid){
+  addMyproperties(name, available,category,description, rent, town,country,county, location, swim, shower, token, fan, wardrobe, tiles, image, uid){
     const propertyId = this.afs.createId();
     this.afs.doc(`property/${propertyId}`).set({
       propertyId:propertyId,
@@ -95,6 +95,7 @@ export class LandlordsService {
       county: county,
       location:location,
       category:category,
+      description:description,
       Rent:rent,
       AvailableSlots: available,
       Town: town,

@@ -11,6 +11,7 @@ export interface Property {
 	imageUrl: string;
 	Rent: number;
 	landLordId?: string;
+	description?: Text
 }
 export interface Features {
 	shower?: boolean;

@@ -69,4 +69,9 @@ export class PropertiesService {
 		  verticalPosition: 'top'
 		});
 	  }
+	//   getPropDetails(propId){
+		
+	// 	return this.afs.collection('properties', ref=> ref.where('propertyId', '==', propId)).snapshotChanges();
+	//   }
+	 
 }

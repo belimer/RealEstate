@@ -42,6 +42,7 @@ export class ListpropertyComponent implements OnInit {
       pname: ['', Validators.required],
       slots: ['', Validators.required],
       category: ['', Validators.required],
+      description: [''],
       image: [''],
       rent: ['', Validators.required]
     });
@@ -103,6 +104,7 @@ export class ListpropertyComponent implements OnInit {
       this.firstFormGroup.value['pname'],
       this.firstFormGroup.value['slots'],
       this.firstFormGroup.value['category'],
+      this.firstFormGroup.value['description'],
       this.firstFormGroup.value['rent'],
       this.secondFormGroup.value['town'],
       this.secondFormGroup.value['country'],
