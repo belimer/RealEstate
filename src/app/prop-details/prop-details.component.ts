@@ -18,6 +18,7 @@ export class PropDetailsComponent implements OnInit {
   category:any
   description:any
   image: string;
+  propertyId: any;
 
   constructor(
     private afs:AngularFirestore,
@@ -36,6 +37,7 @@ export class PropDetailsComponent implements OnInit {
       this.rent = details.Rent;
       this.category=details.category;
       this.description = details.description;
+      this.propertyId = details.propertyId;
      // this.image = details.imageUrl
 
       
