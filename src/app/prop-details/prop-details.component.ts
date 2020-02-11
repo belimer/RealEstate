@@ -3,6 +3,7 @@ import { Property } from '../models/property.model';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { PropertiesService } from '../services/properties.service';
 import { ActivatedRoute } from '@angular/router';
+import { Images } from '../models/images.model';
 
 @Component({
   selector: 'app-prop-details',
@@ -10,49 +11,70 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./prop-details.component.css']
 })
 export class PropDetailsComponent implements OnInit {
- // property:Property
+  // property:Property
   //properties:Property
   propName: any;
   propCounty: any;
-  rent:any
-  category:any
-  description:any
+  rent: any
+  category: any
+  description: any
   image: any
   propertyId: any;
+  imageId: any;
+  imageUrl: any;
+
+  images: Images[]
+
 
   constructor(
-    private afs:AngularFirestore,
-     private propertyService: PropertiesService,
-     private activeRoute: ActivatedRoute,
-     
+    private afs: AngularFirestore,
+    private propertyService: PropertiesService,
+    private activeRoute: ActivatedRoute,
+
   ) { }
 
   ngOnInit() {
     const propertyId = this.activeRoute.snapshot.params['id']
     this.viewDetails(propertyId);
+    this.getRelatedImages();
   }
   viewDetails(propertyId) {
-    this.afs.doc<Property>(`property/${propertyId}`).valueChanges().subscribe(details=>{
+    this.afs.doc<Property>(`property/${propertyId}`).valueChanges().subscribe(details => {
       this.propName = details.propertyName;
       this.rent = details.Rent;
-      this.category=details.category;
+      this.category = details.category;
       this.description = details.description;
       this.propertyId = details.propertyId;
-     this.image = details.imageUrl
+      this.image = details.imageUrl
 
-      
-    
+
+
     })
-    
-  }
-  // getUserResidence(propertyId: string) {
-  //   this.afs.doc<Property>(`property/${propertyId}`).valueChanges().subscribe(property => {
-  //     this.propName = property.propertyName;
-  //     this.propCounty = property.county;
-  //     this.propTown = property.Town;
-  //     this.propRent = property.Rent;
- 
-  //   })
-  //  }
 
+  }
+  getRelatedImages() {
+    const propId = this.activeRoute.snapshot.params['id']
+    this.afs.collection('images', ref => ref.where('propertyId', '==', propId)).snapshotChanges()
+      .subscribe(img => {
+        this.images = img.map(item => {
+          return {
+            id: item.payload.doc.id,
+            ...item.payload.doc.data()
+          } as Images
+        })
+
+
+      })
+  }
 }
+
+  //  this.afs.collection('bookings', ref => ref.where('propertyId', '==', propertyId)).snapshotChanges()
+  // .subscribe(booking=>{
+  //       this.bookings = booking.map(item=>{
+  //         return{
+  //           id: item.payload.doc.id,
+  //           ...item.payload.doc.data()
+  //         }as Booking
+  //       })
+  //     })
+

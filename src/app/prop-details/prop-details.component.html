@@ -58,20 +58,27 @@
     </div>
     <mat-card>
       <mat-card-header>
-         <!-- <h2> More of {{propName}} property images</h2> -->
+        <!-- <h2> More of {{propName}} property images</h2> -->
         <mat-card-title>More of {{propName}} property images</mat-card-title>
       </mat-card-header>
-    <div class="row justify-content-start" style="padding-top:10px;">
+      <mat-card-content>
+        <div class="imgCol" style="padding-top:10px;">
 
 
-      <div class="col" style="padding-top:10px;">
+          <div style="padding-top:10px;" *ngFor="let image of images">
+            <mat-card  class="push">
+              <div>
 
-        <label style="font-size:30px;">Image</label>
-        <img style="height:300px" src="../../assets/img/iphonex.png">
+                <label style="font-size:30px;">Image</label>
+                <br>
+                <img style="height:300px" src="{{image.imageUrl}}">
+              </div>
+            </mat-card>
 
-
-      </div>
-      <div class="col" style="padding-top:10px;">
+          </div>
+        </div>
+      </mat-card-content>
+      <!-- <div class="col" style="padding-top:10px;">
         <label style="font-size:30px;">Image</label>
         <img style="height: 300px;" src="../../assets/img/Macbook.png">
       </div>
@@ -82,11 +89,13 @@
         <img style="height:300px" src="../../assets/img/iphonex.png">
 
 
-      </div>
-    </div>
-  </mat-card>
+      </div>-->
+    </mat-card>
 
-    <!-- <div class="row justify-content-end" style="padding-top:10px;">
+  </div>
+
+
+  <!-- <div class="row justify-content-end" style="padding-top:10px;">
       <div class="push">
       <button class="btn btn-primary">Image</button>
 
@@ -100,12 +109,11 @@
 
 
 
-  </div>
+</div>
 <div>
- <footer class="pf" style="color: darkgray;" style="height: 50px;" style="width: 100%;">
-  <p>this is the footer</p>
-</footer>
+  <footer class="pf" style="color: darkgray;" style="height: 50px;" style="width: 100%;">
+    <p>this is the footer</p>
+  </footer>
 </div>
 
 
-</div>
