@@ -1,4 +1,23 @@
+<mat-toolbar color="teal">
+    <span class="alreadyPartner">Do you have any property?</span>
+
+    <span class="filler"></span>
+    <div class="push">
+        
+        <span>
+            <a routerLink="/auth/register">
+                <button class="tenantregister">List property</button>
+            </a>
+        </span>
+
+    </div>
+
+</mat-toolbar>
 <div class="register">
+
+<div class="agreement">
+    Sign in to manage your account
+</div>
 
     <mat-card>
 
@@ -21,4 +40,8 @@
             <button mat-raised-button color="primary" type="submit" (click)="onSubmit()">Login</button>
         </mat-card-actions>
     </mat-card>
+
+    <div class="trouble">
+        Trouble logging in?
+    </div>
 </div>
