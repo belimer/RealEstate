@@ -50,7 +50,9 @@ a:hover, a:active{
 
 
 }
-
+.filler {
+	flex: 1 1 auto;
+}
 .hero{
     vertical-align: middle;
     font-size: 40px;

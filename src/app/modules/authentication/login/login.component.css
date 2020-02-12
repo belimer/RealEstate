@@ -81,7 +81,9 @@ mat-toolbar{
     font-display: block;
     font-size: 15px;
 }
-
+.filler {
+	flex: 1 1 auto;
+}
 .agreement{
     color: white;
     font-family: Verdana, Geneva, Tahoma, sans-serif; 

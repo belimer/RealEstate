@@ -1,10 +1,38 @@
+<mat-toolbar color="teal">
+    <span class="alreadyPartner"><a routerLink=''>E Agency</a></span>
+
+    <span class="filler"></span>
+    <span class="alreadyPartner">Already have an account?</span>
+
+    
+    <div class="push">
+        
+        <span>
+            <a routerLink="/auth/login">
+                <button class="tenantregister">Login</button>
+            </a>
+        </span>
+
+    </div>
+
+</mat-toolbar>
 <div class="register">
+        <div class="hero">
+            <p>To Rent this property,</p>
+            <p>Kindly register on</p>
+            <p>on E agency </p>
+            <p class="getstarted">or <a routerLink='auth/login'>Login here</a> if you <br> already have an account </p>
 
+            <p class="getstarted">
+            Registratio can take as little as 2 minutes to complete!- get started today
+        </p>
+        </div>
+      
+<div>
     <mat-card>
-
-        <!-- <p>Do not have an account?</p> -->
+ <!-- <p>Do not have an account?</p> -->
         <mat-card-header>
-            <mat-card-title>Fill in your details to rent this property!</mat-card-title>
+            <mat-card-title>Rent property</mat-card-title>
         </mat-card-header>
         <mat-card-content>
             <form class="mat-content" [formGroup]="register">
@@ -23,8 +51,12 @@
             </form>
         </mat-card-content>
         <mat-card-actions align="end">
-            <button mat-raised-button color="primary" type="submit" (click)="onSubmit()">Rent</button>
+            <button mat-raised-button color="primary" type="submit" (click)="onSubmit()">Register</button>
         </mat-card-actions>
-       
+        
     </mat-card>
+    <div class ="agreement">
+        By continuing you agree to let EAgency Email your regarding your property
+    </div>
+</div>
 </div>
