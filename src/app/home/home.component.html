@@ -29,11 +29,11 @@
         <div class="col-sm-3 child" *ngFor="let property of properties;">
             <mat-card class="example-card">
                 <mat-card-header>
-                   <h2>{{property.propertyName}}</h2> 
+                    <!--<h2>{{property.propertyName}}</h2> -->
                     <mat-card-title>KES: {{property.Rent}} <span> /month</span></mat-card-title>
                     <mat-card-subtitle class="rent">{{property.category}}</mat-card-subtitle>
                 </mat-card-header>
-                <img mat-card-image src='{{property.imageUrl}}' alt="Photo of a Shiba Inu">
+                <img mat-card-image src='{{property.imageUrl}}' height="150" alt="Photo of a Shiba Inu">
                 <mat-card-content>
                     <p>
                       
