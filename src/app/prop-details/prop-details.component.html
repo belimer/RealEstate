@@ -25,11 +25,7 @@
           <div class="col" style="padding-top:10px;">
             <h1>{{propName}}</h1>
             <img src="{{image}}" class="imgC">
-            <mat-card style="width: 450px;">
-
-              <label>Category: {{category}}</label><br>
-              <label>Rent: {{rent}}</label>
-            </mat-card>
+           
 
 
           </div>
@@ -39,6 +35,11 @@
               <p style="color: black;" style="display: block;">
                 {{description}}
               </p>
+              <mat-card class="desc" >
+
+                <label class="lb">Category: {{category}}</label><br>
+                <label class="lb">Rent: {{rent}}</label>
+              </mat-card>
             </div>
           </div>
         </div>
@@ -66,12 +67,12 @@
 
 
           <div style="padding-top:10px;" *ngFor="let image of images">
-            <mat-card  class="push">
+            <mat-card >
               <div>
 
                 <label style="font-size:30px;">Image</label>
                 <br>
-                <img style="height:300px" src="{{image.imageUrl}}">
+                <img style="height:300px; max-width:400px;" src="{{image.imageUrl}}">
               </div>
             </mat-card>
 
@@ -115,5 +116,3 @@
     <p>this is the footer</p>
   </footer>
 </div>
-
-
