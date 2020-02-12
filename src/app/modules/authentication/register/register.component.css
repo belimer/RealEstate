@@ -1,11 +1,11 @@
 .register{
-    margin-top: 10%;
     display: flex;
     flex-direction: row;
-    margin-top: 10%;
     align-items: center;
     justify-content: center;
-    text-align: center;
+    
+    background-color:  teal;
+    height: 500px;
 }
 .register mat-card{
     min-width: 40%;
@@ -47,7 +47,61 @@ a:hover, a:active{
     display: flex;
     gap: 20px;
     flex-direction: row;
-    
-    
 
+
+}
+
+.hero{
+    vertical-align: middle;
+    font-size: 40px;
+    display: block;
+    padding-right: 40px;
+    color: white;
+    font-weight: 2000;
+    font-family: Verdana, Geneva, Tahoma, sans-serif; ;
+}
+.getstarted{
+    vertical-align: middle;
+    font-size: 15px;
+    display: block;
+    padding-top: 20px;
+    color: white;
+    font-weight: 600;
+    font-family: Verdana, Geneva, Tahoma, sans-serif; ;
+
+}
+
+mat-toolbar {
+    background-color: teal;
+}
+
+.tenantregister {
+	background-color: #2196f3;
+	padding: 5px;
+	border-radius: 5px;
+	text-align: center;
+	width: 150px;
+	display: flex;
+	align-content: center;
+	border: none;
+	color: white;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	cursor: pointer;
+}
+
+.alreadyPartner{
+    color: white;
+    padding: 5px;
+    font-display: block;
+    font-size: 15px;
+}
+
+.agreement{
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif; 
+    font-size: 15px;
 }

@@ -1,10 +1,34 @@
+<mat-toolbar color="teal">
+    <span class="alreadyPartner">Already a partner?</span>
+
+    <span class="filler"></span>
+    <div class="push">
+        
+        <span>
+            <a routerLink="/auth/login">
+                <button class="tenantregister">Login</button>
+            </a>
+        </span>
+
+    </div>
+
+</mat-toolbar>
 <div class="register">
+        <div class="hero">
+            <p>List your</p>
+            <p>apartment, house, rentals, e.t.c</p>
+            <p>on E agency </p>
 
+            <p class="getstarted">
+            Registration and listing can take as little as 10 minutes to complete!- get started today
+        </p>
+        </div>
+      
+<div>
     <mat-card>
-
-        <!-- <p>Do not have an account?</p> -->
+ <!-- <p>Do not have an account?</p> -->
         <mat-card-header>
-            <mat-card-title>To list your property, Kindly create an account with us!</mat-card-title>
+            <mat-card-title>Create new listing</mat-card-title>
         </mat-card-header>
         <mat-card-content>
             <form class="mat-content" [formGroup]="register">
@@ -25,8 +49,10 @@
         <mat-card-actions align="end">
             <button mat-raised-button color="primary" type="submit" (click)="onSubmit()">Register</button>
         </mat-card-actions>
-        <mat-card-actions align = "end">
-            <button mat-raised-button color="primary" type="submit" (click)="login()">login</button>
-        </mat-card-actions>
+        
     </mat-card>
+    <div class ="agreement">
+        By continuing you agree to let EAgency Email your regarding your property registration
+    </div>
+</div>
 </div>
