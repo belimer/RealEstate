@@ -154,3 +154,112 @@ mat-card-title {
 mat-card-title > span {
 	font-size: 10px;
 }
+.register{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    
+    background-color:  teal;
+    height: 500px;
+}
+.register mat-card{
+    min-width: 40%;
+}
+.hide{
+    display: none;
+}
+.mat-content{
+    display: flex;
+    flex-direction: column;
+}
+mat-toolbar{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: flex-end;
+   
+}
+/* mat-toolbar.div{
+    padding-left: 30%;
+    /* display: flex;
+    align-content: space-between; */
+
+/*     
+} */ 
+a {
+    text-decoration: none;
+    color: white;
+}
+ 
+a:hover, a:active{
+    color: lightgray;
+}
+
+.navigation-items{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px;
+    flex-direction: row;
+
+
+}
+.filler {
+	flex: 1 1 auto;
+}
+.hero{
+    vertical-align: middle;
+    font-size: 40px;
+    display: block;
+    padding-right: 40px;
+    color: white;
+    font-weight: 2000;
+    font-family: Verdana, Geneva, Tahoma, sans-serif; ;
+}
+.getstarted{
+    vertical-align: middle;
+    font-size: 15px;
+    display: block;
+    padding-top: 20px;
+    color: white;
+    font-weight: 600;
+    font-family: Verdana, Geneva, Tahoma, sans-serif; ;
+
+}
+
+mat-toolbar {
+    background-color: teal;
+}
+
+.tenantregister {
+	background-color: #2196f3;
+	padding: 5px;
+	border-radius: 5px;
+	text-align: center;
+	width: 150px;
+	display: flex;
+	align-content: center;
+	border: none;
+	color: white;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	cursor: pointer;
+}
+
+.alreadyPartner{
+    color: white;
+    padding: 5px;
+    font-display: block;
+    font-size: 15px;
+}
+
+.agreement{
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif; 
+    font-size: 15px;
+}
