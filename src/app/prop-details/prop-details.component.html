@@ -16,18 +16,11 @@
 
 </mat-toolbar>
 
+
 <div class="container body-content">
-
-
-
-
   <div class="container">
-
-
-    <div class="row justify-content-center" style="padding-top:10px;">
-      <h1>Property Details</h1>
-
-
+    <div class="row" style="padding-top:10px;">
+      <h5>Property Details</h5>
     </div>
     <mat-card>
       <mat-card-content>
@@ -36,21 +29,37 @@
           <div class="col" style="padding-top:10px;">
             <h1>{{propName}}</h1>
             <img src="{{image}}" class="imgC">
-           
-
-
-          </div>
-          <div class="col" style="padding-top:10px;">
-            <div>
-              <h1>Description</h1>
-              <p style="color: black;" style="display: block;">
-                {{description}}
-              </p>
-              <mat-card class="desc" >
+             <mat-card class="desc" >
 
                 <label class="lb">Category: {{category}}</label><br>
                 <label class="lb">Rent: {{rent}}</label>
               </mat-card>
+          </div>
+          <div class="col" style="padding-top:10px;">
+            <div>
+              <mat-tab-group>
+                <mat-tab label="Photos">
+                    <div class="imgCol" style="padding-top:10px;">
+                    <div style="padding-top:10px;" *ngFor="let image of images">
+                      <mat-card >
+                        <div>
+                          <br>
+                          <img style="height:100px; max-width:150px;" src="{{image.imageUrl}}">
+                        </div>
+                      </mat-card>
+
+                    </div>
+                  </div>
+                </mat-tab>
+                <mat-tab label="More info">
+                 <h1>Description</h1>
+                  <p style="color: black;" style="display: block;">
+                    {{description}}
+                  </p>
+             
+                </mat-tab>
+              </mat-tab-group>
+             
             </div>
           </div>
         </div>
@@ -64,46 +73,6 @@
       </mat-card-actions>
 
     </mat-card>
-    <mat-divider></mat-divider>
-    <div class="row justify-content-center" style="padding-top:10px;">
-      <h1>Related images</h1>
-    </div>
-    <mat-card>
-      <mat-card-header>
-        <!-- <h2> More of {{propName}} property images</h2> -->
-        <mat-card-title>More of {{propName}} property images</mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <div class="imgCol" style="padding-top:10px;">
-
-
-          <div style="padding-top:10px;" *ngFor="let image of images">
-            <mat-card >
-              <div>
-
-                <label style="font-size:30px;">Image</label>
-                <br>
-                <img style="height:300px; max-width:400px;" src="{{image.imageUrl}}">
-              </div>
-            </mat-card>
-
-          </div>
-        </div>
-      </mat-card-content>
-      <!-- <div class="col" style="padding-top:10px;">
-        <label style="font-size:30px;">Image</label>
-        <img style="height: 300px;" src="../../assets/img/Macbook.png">
-      </div>
-
-      <div class="col" style="padding-top:10px;">
-
-        <label style="font-size:30px;">Image</label>
-        <img style="height:300px" src="../../assets/img/iphonex.png">
-
-
-      </div>-->
-    </mat-card>
-
   </div>
 
 
