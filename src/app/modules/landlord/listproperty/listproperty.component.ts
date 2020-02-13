@@ -90,16 +90,17 @@ export class ListpropertyComponent implements OnInit {
     task.snapshotChanges().pipe(
       finalize(() => {
         this.downloadURL = fileRef.getDownloadURL()
-      //   this.downloadURL.subscribe(url => {
-      //     //console.log("Image URL: " + url)
-      //    this.imageUrl = url;
-      //  })
+         this.downloadURL.subscribe(url => {
+           console.log("Image URL: " + url)
+          this.imageUrl = url;
+        })
       })
     ).subscribe();
 
   }
 
   onSubmit() {
+    console.log(this.imageUrl);
     this.lService.addMyproperties(
       this.firstFormGroup.value['pname'],
       this.firstFormGroup.value['slots'],
@@ -116,9 +117,11 @@ export class ListpropertyComponent implements OnInit {
       this.form.value['fan'],
       this.form.value['wardrobe'],
       this.form.value['tiles'],
-      this.firstFormGroup.value['image'],
+      this.imageUrl,
       this.uid
     );
+
+    console.log( this.firstFormGroup.value['image'])
 
   }
 
