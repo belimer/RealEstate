@@ -1,0 +1,223 @@
+<div class="wrapper ">
+    <div>
+        <app-sidenav></app-sidenav>
+    </div>
+    <div class="main-panel">
+        <!-- Navbar -->
+        <div>
+            <app-navbar></app-navbar>
+        </div>
+        <!-- End Navbar -->
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+
+                    <div class="card">
+                        <div class="card-header card-header-warning">
+                            <h4 class="card-title">{{name}}</h4>
+                            <p class="card-category"></p>
+                        </div>
+                        <mat-tab-group>
+                            <mat-tab label="Propery Details">
+                                    <mat-horizontal-stepper [linear]="isLinear" #stepper>
+                                            <mat-step [stepControl]="firstFormGroup">
+                                              <form [formGroup]="firstFormGroup">
+                                                <ng-template matStepLabel>Fill in your property details</ng-template>
+                                                <div class="details">
+                                                  <mat-form-field>
+                                                    <input matInput placeholder="PropertyName" formControlName="pname" value="{{name}}" required>
+                                                  </mat-form-field>
+                                                  <mat-form-field>
+                                                    <input matInput placeholder="Available slots" type="number" value="{{availableslots}}" formControlName="slots" required>
+                                                  </mat-form-field>
+                              
+                                                  <mat-form-field>
+                                                    <input matInput placeholder="category" value="{{category}}" formControlName="category" required>
+                                                  </mat-form-field>
+                                                     <!--<input type="file" (change)="uploadImage($event)" />-->
+                                                     <input type="file" formControlName="image"  hidden accept="image/*" />
+                                                   
+                                                </div>
+                                                <div>
+                                                  <button mat-button matStepperNext>Next</button>
+                                                </div>
+                                              </form>
+                                            </mat-step>
+                                            <mat-step [stepControl]="secondFormGroup">
+                                              <form [formGroup]="secondFormGroup">
+                                                <ng-template matStepLabel>Fill in property location details</ng-template>
+                                                <div class="details">
+                                                  <mat-form-field>
+                                                    <input matInput placeholder="Country" value="{{country}}" formControlName="country" required>
+                                                  </mat-form-field>
+                                                  <mat-form-field>
+                                                    <input matInput placeholder="County" value="{{county}}" formControlName="county" required>
+                                                  </mat-form-field>
+                                                  <mat-form-field>
+                                                    <input matInput placeholder="Town" value="{{town}}" formControlName="town" required>
+                                                  </mat-form-field>
+                                                  <mat-form-field>
+                                                    <input matInput placeholder="Location" value="{{loc}}" formControlName="loc" required>
+                                                  </mat-form-field>
+                                                </div>
+                                                <div>
+                                                  <button mat-button matStepperPrevious>Back</button>
+                                                  <button mat-button matStepperNext>Next</button>
+                                                </div>
+                                              </form>
+                                            </mat-step>
+                                            <mat-step [stepControl]="form">
+                                              <form [formGroup]="form">
+                                                <ng-template matStepLabel>Property features</ng-template>
+                                                <div class="details">
+                                                  <mat-list>
+                                                    <mat-list-item>
+                                                      <mat-checkbox checked=“true” value="{{swim}}" formControlName="swim">swimming pool</mat-checkbox>
+                                                    </mat-list-item>
+                                                    <mat-divider></mat-divider>
+                                                    <mat-list-item>
+                                                      <mat-checkbox formControlName="shower" value="{{shower}}" >hot shower</mat-checkbox>
+                                                    </mat-list-item>
+                                                    <mat-divider></mat-divider>
+                                                    <mat-list-item>
+                                                      <mat-checkbox formControlName="wardrobe" >wardrobe
+                                                      </mat-checkbox>
+                                                    </mat-list-item>
+                                                    <mat-divider></mat-divider>
+                                                    <mat-list-item>
+                                                      <mat-checkbox labelPosition=“before” value="{{token}}" formControlName="token">electricity is token based
+                                                      </mat-checkbox>
+                                                    </mat-list-item>
+                                                    <mat-divider></mat-divider>
+                                                    <mat-list-item>
+                                                      <mat-checkbox formControlName="tiles" value = "{{tiles}}">tiles foor
+                                                      </mat-checkbox>
+                                                    </mat-list-item>
+                                                    <mat-divider></mat-divider>
+                                                    <mat-list-item>
+                                                      <mat-checkbox formControlName="fan" value ="{{fan}}">ventilation fans installed</mat-checkbox>
+                                                    </mat-list-item>
+                                                    <mat-divider></mat-divider>
+                              
+                                                  </mat-list>
+                              
+                                                </div>
+                                                <div>
+                                                  <button mat-button matStepperPrevious>Back</button>
+                                                  <button mat-button matStepperNext>Next</button>
+                                                </div>
+                                              </form>
+                                            </mat-step>
+                                            <mat-step>
+                                              <ng-template matStepLabel>Done</ng-template>
+                                              You are now done.
+                                              <div>
+                                                <button mat-button matStepperPrevious>Back</button>
+                                                <!-- <button mat-button (click)="stepper.reset()">Reset</button> -->
+                                                <button mat-button >Save</button>
+                                              </div>
+                                            </mat-step>
+                                          </mat-horizontal-stepper>
+                              
+
+                            </mat-tab>
+                            <mat-tab label="Occupants">
+                                <mat-tab-group>
+                                    <mat-tab label="Current">
+                                         <div class="card-body table-responsive ">
+
+                            <table class="table table-hover">
+                                <thead class="text-warning">
+                                    <th>Date Booked</th>
+                                    <th>Name</th>
+                                    <th>Phone</th>
+                                    <th>Email</th>
+                                    
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let booking of bookings">
+                                      
+                                        <td>{{booking.date.toDate() | date}}</td>
+                                        <td>{{booking.name}}</td>
+                                        <td>{{booking.phone}}</td>
+                                        <td>{{booking.email}}</td>
+                                      
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                                    </mat-tab>
+                                    <mat-tab label="Previous">
+
+                                    </mat-tab>
+                                </mat-tab-group>
+                            </mat-tab>
+                        </mat-tab-group>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="container-fluid">
+                <nav class="float-left">
+                    
+                </nav>
+                <div class="copyright float-right">
+                    &copy;
+                    <script>
+                        document.write(new Date().getFullYear())
+                    </script>, made with <i class="material-icons">favorite</i> 
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>
+<div class="fixed-plugin">
+    <div class="dropdown show-dropdown">
+        <a href="#" data-toggle="dropdown">
+            <i class="fa fa-cog fa-2x"> </i>
+        </a>
+        <ul class="dropdown-menu">
+            <li class="header-title"> Sidebar Filters</li>
+            <li class="adjustments-line">
+                <a href="javascript:void(0)" class="switch-trigger active-color">
+                    <div class="badge-colors ml-auto mr-auto">
+                        <span class="badge filter badge-purple" data-color="purple"></span>
+                        <span class="badge filter badge-azure" data-color="azure"></span>
+                        <span class="badge filter badge-green" data-color="green"></span>
+                        <span class="badge filter badge-warning" data-color="orange"></span>
+                        <span class="badge filter badge-danger" data-color="danger"></span>
+                        <span class="badge filter badge-rose active" data-color="rose"></span>
+                    </div>
+                    <div class="clearfix"></div>
+                </a>
+            </li>
+            <li class="header-title">Images</li>
+            <li class="active">
+                <a class="img-holder switch-trigger" href="javascript:void(0)">
+                    <img src="../assets/img/sidebar-1.jpg" alt="">
+                </a>
+            </li>
+            <li>
+                <a class="img-holder switch-trigger" href="javascript:void(0)">
+                    <img src="../assets/img/sidebar-2.jpg" alt="">
+                </a>
+            </li>
+            <li>
+                <a class="img-holder switch-trigger" href="javascript:void(0)">
+                    <img src="../assets/img/sidebar-3.jpg" alt="">
+                </a>
+            </li>
+            <li>
+                <a class="img-holder switch-trigger" href="javascript:void(0)">
+                    <img src="../assets/img/sidebar-4.jpg" alt="">
+                </a>
+            </li>
+
+        </ul>
+    </div>
+</div>

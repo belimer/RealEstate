@@ -16,6 +16,7 @@ import { TenantsComponent } from './tenants/tenants.component';
 import { TenantdetailsComponent } from './tenantdetails/tenantdetails.component';
 import { LandlorddetailsComponent } from './landlorddetails/landlorddetails.component';
 import { AddPropertyComponent } from './add-property/add-property.component';
+import { PropdetailsComponent } from './propdetails/propdetails.component';
 
 @NgModule({
 	declarations: [
@@ -29,7 +30,8 @@ import { AddPropertyComponent } from './add-property/add-property.component';
 		UploadFileComponent,
 		TenantdetailsComponent,
 		LandlorddetailsComponent,
-		AddPropertyComponent
+		AddPropertyComponent,
+		PropdetailsComponent
 	],
 
 	imports: [CommonModule, AgentRoutingModule, SharedModule]

@@ -9,11 +9,12 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { ConcernsComponent } from './concerns/concerns.component';
 import { SharedModule } from '../shared/shared.module';
+import { PayrentComponent } from './payrent/payrent.component';
 
 
 
 @NgModule({
-  declarations: [DashboardComponent, NavbarComponent, SidenavComponent, ConcernsComponent],
+  declarations: [DashboardComponent, NavbarComponent, SidenavComponent, ConcernsComponent, PayrentComponent],
   imports: [
     CommonModule,
     ClientRoutingModule,

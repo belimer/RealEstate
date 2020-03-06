@@ -18,14 +18,26 @@
 
 </mat-toolbar>
 
-<div class="hero">
+<div class="hero overlay">
     <div class="text">
-
+        <div class="hometext">
+            Find your dream place of residence
+        </div>
+       <mat-card>
+            <form>
+                <div class="searchfield">
+                    <select name="search" >
+                        <option value="">...</option>
+                        <option value="">...</option>
+                    </select>
+                    <button class="tenantregister">Search</button>
+                </div>
+            </form>
+       </mat-card>
     </div>
 </div>
 <div>
     <div class="irow">
-
         <div class="col-sm-3 child" *ngFor="let property of properties;">
             <mat-card class="example-card">
                 <mat-card-header>
@@ -49,12 +61,10 @@
                 </mat-card-content>
                 <mat-card-actions>
                    <a routerLink='/{{property.propertyId}}/view-details'> <button class="btn_view" mat-button>VIEW</button></a>
-                   <a routerLink='/{{property.propertyId}}/book'> <button class="btn_rent" mat-button>RENT</button></a>
+                   <button (click)="checkAvailability(property.propertyId)" class="btn_rent" mat-button>RENT</button>
                 </mat-card-actions>
             </mat-card>
         </div>
-
-
     </div>
 
 </div>

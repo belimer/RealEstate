@@ -16,6 +16,11 @@
 	height: 70%;
 	align-items: center;
 	justify-content: center;
+	text-align: center;
+	align-content: center;
+	justify-content: center;
+
+  
 }
 
 .register {
@@ -92,9 +97,6 @@ mat-card{
 	
 
 } */
-mat-card {
-	max-width: 400px;
-}
 
 .example-header-image {
 	background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
@@ -262,4 +264,32 @@ mat-toolbar {
     color: white;
     font-family: Verdana, Geneva, Tahoma, sans-serif; 
     font-size: 15px;
+}
+
+.text{
+	
+	color: blue;
+	text-align: center;
+	align-content: center;
+	justify-content: center;
+	position: absolute;
+ 	 left: 50%;
+  	top: 50%;
+	  transform: translate(-50%, -50%);
+}
+
+
+select{
+	min-width: 300px;
+	max-width: 600px;
+}
+
+.searchfield{
+	display: flex;
+	flex-direction: row;
+}
+
+.hometext{
+	background-color: white;
+	font-size: medium;
 }
